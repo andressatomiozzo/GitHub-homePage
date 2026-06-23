@@ -1,6 +1,8 @@
+import styles from "./Input.module.css"
+
 const Input = () => {
   return (
-    <input />
+    <input className={styles.input}/>
   )
 }
 

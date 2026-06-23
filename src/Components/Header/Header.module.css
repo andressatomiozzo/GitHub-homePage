@@ -1,0 +1,136 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--N200);
+  border-bottom: 1px solid var(--N400);
+}
+
+.partLeft,
+.partCenter,
+.partRight,
+.rightWrapper,
+.repoActions,
+.copilot,
+.createNew,
+.createNew,
+.repoActions a,
+.notifications {
+  display: flex;
+  align-items: center;
+}
+
+.partLeft svg *,
+.partCenter svg *,
+.partRight svg * {
+  fill: var(--N600);
+}
+
+.searchButton,
+.copilot,
+.createNew,
+.repoActions a,
+.notifications {
+  height: 2rem;
+  background-color: var(--N200);
+  border: 1px solid var(--N400);
+  border-radius: 0.5rem;
+}
+
+/* ---------------- left ------------- */
+
+.partLeft {
+  padding: 1rem 0.5rem 1rem 1rem;
+  gap: 0.8rem;
+}
+
+.logo, .user {
+  height: 1.9rem;
+  width: auto;
+}
+
+.logo svg, .user svg {
+  height: 1.9rem;
+  width: auto;
+}
+
+.logo svg *, .user svg * {
+  fill: var(--N1000);
+}
+
+/* ---------------- center ------------- */
+
+.partCenter {
+  padding: 1rem 0;
+  width: 1000px;
+  justify-content: space-between;
+}
+
+.pageLocationTitle {
+  color: var(--N800);
+  font-size: 0.825rem;
+  font-weight: 600;
+}
+
+.searchButton {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.searchTitle {
+  padding: 0 35px 0 0;
+  color: var(--N600);
+}
+
+.searchTitle kbd {
+  display: inline-block;
+  width: 1rem;
+  border: 1px solid var(--N600);
+  border-radius: 4px;
+  color: var(--N600);
+}
+
+/* ---------------- right ------------- */
+
+.partRight {
+  padding: 1rem 1rem 1rem 0.5rem;
+}
+
+.partRight,
+.rightWrapper,
+.repoActions {
+  gap: 0.725rem;
+}
+
+.copilot {
+  width: 3.625rem;
+  justify-content: center;
+}
+
+.copilot > svg {
+  margin: 0 0.3rem;
+}
+
+.copilot button {
+  height: 100%;
+  background-color: var(--N200);
+  border-left: 1px solid var(--N400);
+  padding-left: 0.2rem;
+}
+
+.bar {
+  width: 1px;
+  height: 1.2rem;
+  background-color: var(--N400);
+}
+
+.createNew {
+  padding: 8px;
+  gap: 5px;
+}
+
+.repoActions a,
+.notifications {
+  padding: 0 8px;
+}

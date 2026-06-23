@@ -1,0 +1,6 @@
+.input {
+  background-color: var(--N200);
+  border: 1px solid var(--N400);
+  height: 2rem;
+  border-radius: 0.5rem;
+}

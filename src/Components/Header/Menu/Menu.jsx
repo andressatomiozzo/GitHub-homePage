@@ -1,8 +1,9 @@
 import MenuIcon from "../../../assets/svg/menu.svg?react"
+import styles from "./Menu.module.css"
 
 const Menu = () => {
   return (
-    <button>
+    <button className={styles.button}>
       <MenuIcon/>
     </button>
   )
