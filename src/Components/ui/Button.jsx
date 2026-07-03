@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./Button1.module.css";
+import styles from "./Button.module.css";
 
 const Button1 = ({ type, location, className = "", children, ...prop }) => {
   if (type === "button1" || type === "button2") {

@@ -1,0 +1,13 @@
+.link{
+  display: grid;
+  grid-template-columns: 25px 1fr;
+  align-items: center;
+  padding: 6px 8px;
+}
+
+.title{
+  color: var(--N800);
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 20px;
+}

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import Menu from "./Menu/Menu";
 import PageLocationTitle from "../PageLocationTitle";
-import Button1 from "../Button/Button";
+import Button1 from "../ui/Button";
 
 import LogoIcon from "../../assets/svg/logo1.svg?react";
 import SearchIcon from "../../assets/svg/search.svg?react";
