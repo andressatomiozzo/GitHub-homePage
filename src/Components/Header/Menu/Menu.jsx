@@ -1,25 +1,27 @@
 import React from "react";
 import MenuIcon from "../../../assets/svg/menu.svg?react";
 import styles from "./Menu.module.css";
+import Button1 from "../../Button/Button";
 
 import LogoIcon from "../../../assets/svg/logo1.svg?react";
 import CloseMenu from "../../../assets/svg/close1.svg?react";
-import Button1 from "../../General/Button1";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
   return (
     <>
-      <Button1 type="button" className={styles.button} onClick={() => setToggleMenu((prev) => !prev)}>
+      <Button1 type="button1" className={styles.button} onClick={() => setToggleMenu((prev) => !prev)}>
         <MenuIcon />
       </Button1>
       {toggleMenu && (
-        <asside>
+        <aside>
           <div>
             <LogoIcon />
-            <button aria-label="Close Menu" data-tooltip="Close Menu">
+            <Button1 type="button2" aria-label="Close Menu" data-tooltip="Close Menu">
               <CloseMenu />
-            </button>
+            </Button1>
+            <button></button>
+            <p>oie</p>
           </div>
           <ul>
             <li>
@@ -30,7 +32,7 @@ const Menu = () => {
             <li></li>
             <li></li>
           </ul>
-        </asside>
+        </aside>
       )}
     </>
   );

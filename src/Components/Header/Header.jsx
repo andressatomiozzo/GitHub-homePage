@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import Menu from "./Menu/Menu";
 import PageLocationTitle from "../PageLocationTitle";
+import Button1 from "../Button/Button";
 
 import LogoIcon from "../../assets/svg/logo1.svg?react";
 import SearchIcon from "../../assets/svg/search.svg?react";
@@ -13,7 +14,6 @@ import PullRequestIcon from "../../assets/svg/pull_request.svg?react";
 import RepositoriesIcon from "../../assets/svg/repositorie.svg?react";
 import NotificationsIcon from "../../assets/svg/notification.svg?react";
 import User from "../../assets/svg/user.svg?react";
-import Button1 from "../General/Button1";
 
 const Header = () => {
   return (
@@ -28,7 +28,7 @@ const Header = () => {
         <Link to="/" className={styles.pageLocationTitle}>
           <PageLocationTitle>Dashboard</PageLocationTitle>
         </Link>
-        <Button1 type="button" className={styles.searchButton}>
+        <Button1 type="button1" className={styles.searchButton}>
           <SearchIcon />
           <span className={styles.searchTitle}>
             Type <kbd>/</kbd> to search
@@ -44,23 +44,23 @@ const Header = () => {
             </button>
           </div>
           <div className={styles.bar}></div>
-          <Button1 type="button" className={styles.createNew}>
+          <Button1 type="button1" className={styles.createNew}>
             <AddIcon />
             <ArrowDropDownIcon />
           </Button1>
           <div className={styles.repoActions}>
-            <Button1 type="link" location="/issues/assigned">
+            <Button1 type="link1" location="/issues/assigned">
               <IssuesIcon />
             </Button1>
-            <Button1 type="link" location="/pulls/inbox">
+            <Button1 type="link1" location="/pulls/inbox">
               <PullRequestIcon />
             </Button1>
-            <Button1 type="link" location="/repos">
+            <Button1 type="link1" location="/repos">
               <RepositoriesIcon />
             </Button1>
           </div>
         </div>
-        <Button1 type="link" location="/notifications">
+        <Button1 type="link1" location="/notifications">
           <NotificationsIcon />
         </Button1>
         <div className={styles.user}>
