@@ -1,0 +1,12 @@
+.item {
+  height: 2rem;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  background-color: var(--N200);
+  border: 1px solid var(--N400);
+  border-radius: 0.5rem;
+}

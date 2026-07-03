@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./Header.module.css"
+import styles from "./Header.module.css";
 import Menu from "./Menu/Menu";
 import PageLocationTitle from "../PageLocationTitle";
 
@@ -13,6 +13,7 @@ import PullRequestIcon from "../../assets/svg/pull_request.svg?react";
 import RepositoriesIcon from "../../assets/svg/repositorie.svg?react";
 import NotificationsIcon from "../../assets/svg/notification.svg?react";
 import User from "../../assets/svg/user.svg?react";
+import Button1 from "../General/Button1";
 
 const Header = () => {
   return (
@@ -25,12 +26,14 @@ const Header = () => {
       </div>
       <nav className={styles.partCenter}>
         <Link to="/" className={styles.pageLocationTitle}>
-          <PageLocationTitle >Dashboard</PageLocationTitle>
+          <PageLocationTitle>Dashboard</PageLocationTitle>
         </Link>
-        <button className={styles.searchButton}>
-          <SearchIcon/>
-          <span className={styles.searchTitle}>Type <kbd>/</kbd> to search</span>
-        </button>
+        <Button1 type="button" className={styles.searchButton}>
+          <SearchIcon />
+          <span className={styles.searchTitle}>
+            Type <kbd>/</kbd> to search
+          </span>
+        </Button1>
       </nav>
       <div className={styles.partRight}>
         <div className={styles.rightWrapper}>
@@ -41,27 +44,27 @@ const Header = () => {
             </button>
           </div>
           <div className={styles.bar}></div>
-          <button className={styles.createNew}>
+          <Button1 type="button" className={styles.createNew}>
             <AddIcon />
             <ArrowDropDownIcon />
-          </button>
+          </Button1>
           <div className={styles.repoActions}>
-            <Link to="/issues/assigned">
+            <Button1 type="link" location="/issues/assigned">
               <IssuesIcon />
-            </Link>
-            <Link to="/pulls/inbox">
+            </Button1>
+            <Button1 type="link" location="/pulls/inbox">
               <PullRequestIcon />
-            </Link>
-            <Link to="/repos">
+            </Button1>
+            <Button1 type="link" location="/repos">
               <RepositoriesIcon />
-            </Link>
+            </Button1>
           </div>
         </div>
-        <Link to="/notifications" className={styles.notifications}>
+        <Button1 type="link" location="/notifications">
           <NotificationsIcon />
-        </Link>
+        </Button1>
         <div className={styles.user}>
-          <User/>
+          <User />
         </div>
       </div>
     </header>

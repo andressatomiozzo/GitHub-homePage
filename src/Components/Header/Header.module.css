@@ -11,30 +11,9 @@
 .partRight,
 .rightWrapper,
 .repoActions,
-.copilot,
-.createNew,
-.createNew,
-.repoActions a,
-.notifications {
+.copilot {
   display: flex;
   align-items: center;
-}
-
-.partLeft svg *,
-.partCenter svg *,
-.partRight svg * {
-  fill: var(--N600);
-}
-
-.searchButton,
-.copilot,
-.createNew,
-.repoActions a,
-.notifications {
-  height: 2rem;
-  background-color: var(--N200);
-  border: 1px solid var(--N400);
-  border-radius: 0.5rem;
 }
 
 /* ---------------- left ------------- */
@@ -44,25 +23,28 @@
   gap: 0.8rem;
 }
 
-.logo, .user {
+.logo,
+.user {
   height: 1.9rem;
   width: auto;
 }
 
-.logo svg, .user svg {
+.logo svg,
+.user svg {
   height: 1.9rem;
   width: auto;
 }
 
-.logo svg *, .user svg * {
-  fill: var(--N1000);
+.logo svg *,
+.user svg * {
+  fill: var(--N800);
 }
 
 /* ---------------- center ------------- */
 
 .partCenter {
   padding: 1rem 0;
-  width: 1000px;
+  width: 2000px;
   justify-content: space-between;
 }
 
@@ -78,6 +60,7 @@
   align-items: center;
   gap: 0.5rem;
 }
+
 .searchTitle {
   padding: 0 35px 0 0;
   color: var(--N600);
@@ -104,7 +87,11 @@
 }
 
 .copilot {
+  height: 2rem;
   width: 3.625rem;
+  background-color: var(--N200);
+  border: 1px solid var(--N400);
+  border-radius: 0.5rem;
   justify-content: center;
 }
 
@@ -117,6 +104,8 @@
   background-color: var(--N200);
   border-left: 1px solid var(--N400);
   padding-left: 0.2rem;
+  display: flex;
+  align-items: center;
 }
 
 .bar {
@@ -126,11 +115,5 @@
 }
 
 .createNew {
-  padding: 8px;
   gap: 5px;
-}
-
-.repoActions a,
-.notifications {
-  padding: 0 8px;
 }
