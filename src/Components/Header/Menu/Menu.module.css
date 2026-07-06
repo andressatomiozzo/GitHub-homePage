@@ -1,4 +1,4 @@
-.button {
+.buttonHamburguer {
   width: 2rem;
   height: 2rem;
   border-radius: 0.5rem;
@@ -9,7 +9,7 @@
   justify-content: center;
 }
 
-.button svg * {
+.buttonHamburguer svg * {
   fill: var(--N600);
 }
 
@@ -29,19 +29,46 @@
   padding: 1rem;
 }
 
+.logo {
+  height: 2rem;
+  width: auto;
+}
+
+.logo * {
+  fill: var(--N800);
+}
+
+
 .lista{
-  padding: 8px;
+  padding: 1.5rem .5rem;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: .5rem;
 }
 
 .listaGrupo{
-  padding: 8px 0;
+  padding: 0 8px;
 }
 
 .divisor{
   width: auto;
   height: 1px;
   background-color: var(--N400);
+}
+
+.active {
+  background-color: var(--BGItemActive);
+  position: relative;
+}
+
+.active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -7px;
+  width: 4px;
+  height: 1.5rem;
+  border-radius: 5px;
+  background-color: var(--Blue);
+  z-index: 800;
 }

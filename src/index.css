@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 
 :root {
   --N0: #fff;
   --N200: #f6f8fa;
-  --N300: #d1d9e03f;
   --N400: #d1d9e0;
   --N600: #59636e;
   --N800: #1f2328;
   --N1000: #000;
+
+  --BGItem: #f2f3f4;
+  --BGItemActive: #eceef0;
+  --BGButton: #eceef0;
 
   --Blue: #0969da;
   --Red: #cf222e;
@@ -19,23 +21,23 @@
     "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: var(--fontStack-sansSerif);
 }
 
-
-button{
+button {
   border: none;
   font-family: var(--fontStack-sansSerif);
 }
 
-a, li{
+a,
+li {
   text-decoration: none;
 }
 
@@ -43,6 +45,6 @@ svg * {
   fill: var(--N600);
 }
 
-li{
+li {
   list-style: none;
 }

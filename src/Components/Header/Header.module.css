@@ -27,6 +27,7 @@
 .user {
   height: 1.9rem;
   width: auto;
+  cursor: pointer;
 }
 
 .logo svg,
@@ -58,7 +59,7 @@
 }
 
 .pageLocationTitle:hover {
-  background-color: var(--N300);
+  background-color: var(--BGButton);
 }
 
 .searchButton {
@@ -123,9 +124,4 @@
 
 .createNew {
   gap: 5px;
-}
-
-.user,
-.logo {
-  cursor: pointer;
 }

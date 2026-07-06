@@ -23,14 +23,14 @@ const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
   return (
     <>
-      <Button1 type="button1" className={styles.button} onClick={() => setToggleMenu((prev) => !prev)}>
+      <Button1 type="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
         <MenuIcon />
       </Button1>
       {toggleMenu && (
         <aside className={styles.aside}>
           <div className={styles.header}>
-            <LogoIcon />
-            <Button1 type="button2" aria-label="Close Menu" data-tooltip="Close Menu">
+            <LogoIcon className={styles.logo}/>
+            <Button1 type="button2" aria-label="Close Menu" data-tooltip="Close Menu" onClick={() => setToggleMenu(false)}>
               <CloseMenu />
             </Button1>
           </div>
@@ -38,7 +38,7 @@ const Menu = () => {
             <li>
               <ul className={styles.listaGrupo}>
                 <li>
-                  <FeatureItem svg={Home} title="Home" />
+                  <FeatureItem svg={Home} title="Home" className={styles.active}/>
                 </li>
                 <li>
                   <FeatureItem svg={AllIssues} title="All issues" />
