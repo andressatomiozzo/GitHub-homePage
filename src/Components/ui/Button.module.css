@@ -9,9 +9,14 @@
   background-color: var(--N200);
   border: 1px solid var(--N400);
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .button2 {
   border: none;
   background-color: var(--N0);
+}
+
+.button1:hover, .link1:hover {
+  background-color: var(--N300);
 }

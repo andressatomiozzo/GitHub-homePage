@@ -52,6 +52,13 @@
   color: var(--N800);
   font-size: 0.825rem;
   font-weight: 600;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pageLocationTitle:hover {
+  background-color: var(--N300);
 }
 
 .searchButton {
@@ -116,4 +123,9 @@
 
 .createNew {
   gap: 5px;
+}
+
+.user,
+.logo {
+  cursor: pointer;
 }
