@@ -27,7 +27,7 @@ const Menu = () => {
         <MenuIcon />
       </Button1>
       {toggleMenu && (
-        <aside className={styles.aside}>
+        <aside className={`${styles.aside} animeLeft`}>
           <div className={styles.header}>
             <LogoIcon className={styles.logo}/>
             <Button1 type="button2" aria-label="Close Menu" data-tooltip="Close Menu" onClick={() => setToggleMenu(false)}>
