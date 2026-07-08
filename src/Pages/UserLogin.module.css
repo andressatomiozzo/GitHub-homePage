@@ -64,6 +64,7 @@
   color: var(--N0);
   font-weight: 550;
   display: block;
+  cursor: pointer;
 }
 
 .optionPersonalizado {

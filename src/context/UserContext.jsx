@@ -3,8 +3,8 @@ import React from 'react'
 export const UserContext = React.createContext();
 
 export const UserProvider = ({children}) => {
-  const [user, setUser] = React.useState("");
+  const [userToken, setUserToken] = React.useState("");
 
-  return <UserContext value={{user, setUser}}>{children}</UserContext>
+  return <UserContext value={{userToken, setUserToken}}>{children}</UserContext>
 }
 

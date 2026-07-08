@@ -5,8 +5,15 @@ import { Link } from "react-router-dom";
 import styles from "./UserLogin.module.css";
 
 const UserLogin = () => {
-  const { user, setUser } = React.useContext(UserContext);
-  if (user) return null;
+  const { userToken, setUserToken } = React.useContext(UserContext);
+  const [userValue, setUserValue] = React.useState("")
+
+  const handleUserSubmit = (event) => {
+    // setUserToken(event.target)
+    event.preventDefault();
+    setUserToken(userValue)
+  }
+  if (userToken) return null;
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -14,7 +21,7 @@ const UserLogin = () => {
         <p className={styles.titleP}>Você tem duas opções:</p>
         <div className={styles.options}>
           <div className={styles.optionPadrao}>
-            <button className={styles.button}>Entrar com um token padrão</button>
+            <button className={styles.button} onClick={() => setUserToken('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')}>Entrar com um token padrão</button>
           </div>
           <div className={styles.optionPersonalizado}>
             <Link
@@ -25,11 +32,11 @@ const UserLogin = () => {
             >
               Crie um Personal Access Token
             </Link>
-            <form >
+            <form onSubmit={handleUserSubmit} >
               <label htmlFor="user" className={styles.userLabel}>
                 Insira seu Token Personalizado:
               </label>
-              <input type="text" name="user" id="user" className={styles.userInput} />
+              <input type="text" name="user" id="user" className={styles.userInput} value={userValue} onChange={({target}) => setUserValue(target.value)}/>
               <button className={styles.button}>Entrar</button>
             </form>
             <p className={styles.tokenInfo}>
