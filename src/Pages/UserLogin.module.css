@@ -1,0 +1,121 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.225);
+}
+
+.container {
+  max-width: 900px;
+  height: 500px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.192);
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title,
+.titleP {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.title::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--Blue2);
+  border-radius: 0.2rem;
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  z-index: -1;
+}
+
+.options {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.optionPadrao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--Blue);
+  color: var(--N0);
+  font-weight: 550;
+  display: block;
+}
+
+.optionPersonalizado {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 15px;
+  position: relative;
+}
+
+.optionPersonalizado::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: rgb(189, 189, 189);
+  top: 0px;
+  left: 0px;
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--Blue);
+}
+
+.userInput {
+  height: 1.5rem;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.tokenInfoLink {
+  text-decoration: underline;
+  color: rgb(66, 66, 66);
+}
+
+.tokenInfo {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .options {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .optionPersonalizado::before {
+    height: 1px;
+    width: calc(100% - 20px);
+  }
+}
