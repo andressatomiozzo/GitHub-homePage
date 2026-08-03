@@ -5,7 +5,7 @@ type ButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> & 
   variant: "button1" | "button2";
 };
 
-const Button1 = ({ variant, className = "", children, ...props }: ButtonProps) => {
+const Button = ({ variant, className = "", children, ...props }: ButtonProps) => {
   return (
     <button className={`${styles[variant]} ${className}`} {...props}>
       {children}
@@ -13,4 +13,4 @@ const Button1 = ({ variant, className = "", children, ...props }: ButtonProps) =
   );
 };
 
-export default Button1;
+export default Button;

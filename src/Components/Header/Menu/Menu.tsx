@@ -1,8 +1,8 @@
 import React from "react";
 import MenuIcon from "../../../assets/svg/menu.svg?react";
 import styles from "./Menu.module.css";
-import Button1 from "../../ui/Button";
 import FeatureItem from "../../ui/FeatureItem";
+import Button from "../../ui/Button";
 
 import LogoIcon from "../../../assets/svg/logo1.svg?react";
 import CloseMenu from "../../../assets/svg/close1.svg?react";
@@ -29,17 +29,17 @@ const Menu = () => {
 
   return (
     <>
-      <Button1 variant="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
+      <Button variant="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
         <MenuIcon />
-      </Button1>
+      </Button>
       {toggleMenu && (
         <div className={styles.modal} onClick={handleOutideClick}>
           <aside className={`${styles.aside} animeLeft`}>
             <div className={styles.header}>
               <LogoIcon className={styles.logo}/>
-              <Button1 variant="button2" aria-label="Close Menu" data-tooltip="Close Menu" onClick={() => setToggleMenu(false)}>
+              <Button variant="button2" aria-label="Close Menu" data-tooltip="Close Menu" onClick={() => setToggleMenu(false)}>
                 <CloseMenu />
-              </Button1>
+              </Button>
             </div>
             <ul className={styles.lista}>
               <li>

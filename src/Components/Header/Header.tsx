@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import Menu from "./Menu/Menu";
 import PageLocationTitle from "../PageLocationTitle";
-import Button1 from "../ui/Button";
+import Button from "../ui/Button";
+import ButtonLink from "../ui/ButtonLink";
 
 import LogoIcon from "../../assets/svg/logo1.svg?react";
 import SearchIcon from "../../assets/svg/search.svg?react";
@@ -28,12 +29,12 @@ const Header = () => {
         <Link to="/" className={styles.pageLocationTitle}>
           <PageLocationTitle>Dashboard</PageLocationTitle>
         </Link>
-        <Button1 variant="button1" className={styles.searchButton}>
+        <Button variant="button1" className={styles.searchButton}>
           <SearchIcon />
           <span className={styles.searchTitle}>
             Type <kbd>/</kbd> to search
           </span>
-        </Button1>
+        </Button>
       </nav>
       <div className={styles.partRight}>
         <div className={styles.rightWrapper}>
@@ -44,25 +45,25 @@ const Header = () => {
             </button>
           </div>
           <div className={styles.bar}></div>
-          <Button1 variant="button1" className={styles.createNew}>
+          <Button variant="button1" className={styles.createNew}>
             <AddIcon />
             <ArrowDropDownIcon />
-          </Button1>
+          </Button>
           <div className={styles.repoActions}>
-            <Button1 variant="link1" to="/issues/assigned">
+            <ButtonLink to="/issues/assigned">
               <IssuesIcon />
-            </Button1>
-            <Button1 variant="link1" to="/pulls/inbox">
+            </ButtonLink>
+            <ButtonLink to="/pulls/inbox">
               <PullRequestIcon />
-            </Button1>
-            <Button1 variant="link1" to="/repos">
+            </ButtonLink>
+            <ButtonLink to="/repos">
               <RepositoriesIcon />
-            </Button1>
+            </ButtonLink>
           </div>
         </div>
-        <Button1 variant="link1" to="/notifications">
+        <ButtonLink to="/notifications">
           <NotificationsIcon />
-        </Button1>
+        </ButtonLink>
         <div className={styles.user}>
           <User />
         </div>

@@ -2,7 +2,7 @@ import { Link, type LinkProps } from "react-router-dom";
 import styles from "./Button.module.css";
 import type { PropsWithChildren } from "react";
 
-const Button1 = ({ className = "", children, ...props }: PropsWithChildren<LinkProps>) => {
+const ButtonLink = ({ className = "", children, ...props }: PropsWithChildren<LinkProps>) => {
   return (
     <Link className={`${styles.link1} ${className}`} {...props}>
       {children}
@@ -10,4 +10,4 @@ const Button1 = ({ className = "", children, ...props }: PropsWithChildren<LinkP
   );
 };
 
-export default Button1;
+export default ButtonLink;
