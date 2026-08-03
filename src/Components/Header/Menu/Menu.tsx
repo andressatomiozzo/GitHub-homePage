@@ -22,9 +22,11 @@ import MCPRegistry from "../../../assets/svg/mcp_registry.svg?react";
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
-  const handleOutideClick = (event) => {
+  const handleOutideClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(event)
     if(event.target === event.currentTarget) setToggleMenu(false)
   }
+
   return (
     <>
       <Button1 type="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
