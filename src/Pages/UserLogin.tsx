@@ -1,18 +1,19 @@
 import React from "react";
-import { UserContext } from "../context/UserContext";
+import { useUserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 
 import styles from "./UserLogin.module.css";
 
 const UserLogin = () => {
-  const { userToken, setUserToken } = React.useContext(UserContext);
+  const { userToken, setUserToken } = useUserContext();
   const [userValue, setUserValue] = React.useState("")
 
-  const handleUserSubmit = (event) => {
+  const handleUserSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     // setUserToken(event.target)
     event.preventDefault();
     setUserToken(userValue)
   }
+
   if (userToken) return null;
   return (
     <div className={styles.wrapper}>
