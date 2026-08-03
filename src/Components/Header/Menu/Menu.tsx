@@ -29,7 +29,7 @@ const Menu = () => {
 
   return (
     <>
-      <Button1 type="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
+      <Button1 variant="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
         <MenuIcon />
       </Button1>
       {toggleMenu && (
@@ -37,7 +37,7 @@ const Menu = () => {
           <aside className={`${styles.aside} animeLeft`}>
             <div className={styles.header}>
               <LogoIcon className={styles.logo}/>
-              <Button1 type="button2" aria-label="Close Menu" data-tooltip="Close Menu" onClick={() => setToggleMenu(false)}>
+              <Button1 variant="button2" aria-label="Close Menu" data-tooltip="Close Menu" onClick={() => setToggleMenu(false)}>
                 <CloseMenu />
               </Button1>
             </div>

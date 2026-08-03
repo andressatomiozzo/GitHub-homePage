@@ -28,7 +28,7 @@ const Header = () => {
         <Link to="/" className={styles.pageLocationTitle}>
           <PageLocationTitle>Dashboard</PageLocationTitle>
         </Link>
-        <Button1 type="button1" className={styles.searchButton}>
+        <Button1 variant="button1" className={styles.searchButton}>
           <SearchIcon />
           <span className={styles.searchTitle}>
             Type <kbd>/</kbd> to search
@@ -44,23 +44,23 @@ const Header = () => {
             </button>
           </div>
           <div className={styles.bar}></div>
-          <Button1 type="button1" className={styles.createNew}>
+          <Button1 variant="button1" className={styles.createNew}>
             <AddIcon />
             <ArrowDropDownIcon />
           </Button1>
           <div className={styles.repoActions}>
-            <Button1 type="link1" location="/issues/assigned">
+            <Button1 variant="link1" to="/issues/assigned">
               <IssuesIcon />
             </Button1>
-            <Button1 type="link1" location="/pulls/inbox">
+            <Button1 variant="link1" to="/pulls/inbox">
               <PullRequestIcon />
             </Button1>
-            <Button1 type="link1" location="/repos">
+            <Button1 variant="link1" to="/repos">
               <RepositoriesIcon />
             </Button1>
           </div>
         </div>
-        <Button1 type="link1" location="/notifications">
+        <Button1 variant="link1" to="/notifications">
           <NotificationsIcon />
         </Button1>
         <div className={styles.user}>
