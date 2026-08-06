@@ -23,7 +23,7 @@ import RepositoryItem from "../../ui/RepositoryItem";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
-  const { repositoryData } = useUserContext();
+  const { repositoryFetchData } = useUserContext();
   const handleOutideClick = (event: React.MouseEvent<HTMLDivElement>) => {
     console.log(event);
     if (event.target === event.currentTarget) setToggleMenu(false);
@@ -73,8 +73,8 @@ const Menu = () => {
               </li>
               <li className={styles.divisor}>
                 <ul>
-                  {repositoryData &&
-                    repositoryData.map((i) => (
+                  {repositoryFetchData.data &&
+                    repositoryFetchData.data.map((i) => (
                       <RepositoryItem link={i.html_url} key={i.id}>
                         {i.full_name}
                       </RepositoryItem>

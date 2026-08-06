@@ -1,5 +1,7 @@
 import React from "react";
-import { Octokit } from "octokit";
+import useFetch from "../hooks/useFetch";
+
+// =========================== Types =============================
 
 type Repository = {
   id: number | bigint;
@@ -8,11 +10,19 @@ type Repository = {
   [key: string]: unknown;
 };
 
+type repositoryFetchData = {
+  data: Repository[] | null;
+  loading: boolean;
+  error: { user: string; dev: string } | null;
+};
+
 type IUserContext = {
   userToken: string | null;
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
-  repositoryData: Repository[] | null;
+  repositoryFetchData: repositoryFetchData;
 };
+
+// =========================== Código =============================
 
 const UserContext = React.createContext<IUserContext | null>(null);
 
@@ -24,34 +34,13 @@ export const useUserContext = () => {
 
 export const UserProvider = ({ children }: React.PropsWithChildren) => {
   const [userToken, setUserToken] = React.useState<string | null>(null);
-  const [repositoryData, setRepositoryData] = React.useState<Repository[] | null>(null);
-
-  const octokit = new Octokit({
-    auth: userToken,
+  const repositoryFetchData = useFetch<Repository[]>("GET /user/repos", {
+    headers: {
+      "X-GitHub-Api-Version": "2026-03-10",
+    },
   });
 
-  React.useEffect(() => {
-    const searchRepositories = async () => {
-      if (userToken) {
-        try {
-          const octokit = new Octokit({
-            auth: userToken.trim(),
-          });
-
-          const { data } = await octokit.request("GET /user/repos", {
-            headers: {
-              "X-GitHub-Api-Version": "2026-03-10",
-            },
-          });
-
-          setRepositoryData(data);
-        } catch (err) {
-          console.error(err);
-        }
-      }
-    };
-    searchRepositories();
-  }, [userToken]);
-
-  return <UserContext.Provider value={{ userToken, setUserToken, repositoryData }}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ userToken, setUserToken, repositoryFetchData }}>{children}</UserContext.Provider>
+  );
 };
