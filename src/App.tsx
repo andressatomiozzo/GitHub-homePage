@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import UserLogin from "./pages/UserLogin";
 
 import "./App.css";
+import Testes from "./testes";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <BrowserRouter>
         <UserLogin />
         <Header />
+        <Testes/>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

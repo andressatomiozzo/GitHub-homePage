@@ -1,7 +1,7 @@
 import React from "react";
 import MenuIcon from "../../../assets/svg/menu.svg?react";
 import styles from "./Menu.module.css";
-import FeatureItem from "../../ui/FeatureItem";
+import MenuItem from "../../ui/MenuItem";
 import Button from "../../ui/Button";
 
 import LogoIcon from "../../../assets/svg/logo1.svg?react";
@@ -17,15 +17,17 @@ import Copilot from "../../../assets/svg/copilot.svg?react";
 import Explore from "../../../assets/svg/explore.svg?react";
 import MarketPlace from "../../../assets/svg/market_place.svg?react";
 import MCPRegistry from "../../../assets/svg/mcp_registry.svg?react";
-
+import { useUserContext } from "../../../context/UserContext";
+import { Link } from "react-router-dom";
+import RepositoryItem from "../../ui/RepositoryItem";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
-
+  const { repositoryData } = useUserContext();
   const handleOutideClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    console.log(event)
-    if(event.target === event.currentTarget) setToggleMenu(false)
-  }
+    console.log(event);
+    if (event.target === event.currentTarget) setToggleMenu(false);
+  };
 
   return (
     <>
@@ -36,49 +38,49 @@ const Menu = () => {
         <div className={styles.modal} onClick={handleOutideClick}>
           <aside className={`${styles.aside} animeLeft`}>
             <div className={styles.header}>
-              <LogoIcon className={styles.logo}/>
-              <Button variant="button2" aria-label="Close Menu" data-tooltip="Close Menu" onClick={() => setToggleMenu(false)}>
+              <LogoIcon className={styles.logo} />
+              <Button
+                variant="button2"
+                aria-label="Close Menu"
+                data-tooltip="Close Menu"
+                onClick={() => setToggleMenu(false)}
+              >
                 <CloseMenu />
               </Button>
             </div>
             <ul className={styles.lista}>
               <li>
+                {/* prettier-ignore */}
                 <ul className={styles.listaGrupo}>
-                  <li>
-                    <FeatureItem svg={Home} title="Home" className={styles.active}/>
-                  </li>
-                  <li>
-                    <FeatureItem svg={AllIssues} title="All issues" />
-                  </li>
-                  <li>
-                    <FeatureItem svg={AllPullRequest} title="All pull requests" />
-                  </li>
-                  <li>
-                    <FeatureItem svg={AllRepositories} title="All repositories" />
-                  </li>
-                  <li>
-                    <FeatureItem svg={Projects} title="Projects" />
-                  </li>
-                  <li>
-                    <FeatureItem svg={Discussions} title="Discussions" />
-                  </li>
-                  <li>
-                    <FeatureItem svg={Codespaces} title="Codespaces" />
-                  </li>
-                  <li>
-                    <FeatureItem svg={Copilot} title="Copilot" />
-                  </li>
+                  <li><MenuItem svg={Home} title="Home" className={styles.active} /></li>
+                  <li><MenuItem svg={AllIssues} title="All issues" /></li>
+                  <li><MenuItem svg={AllPullRequest} title="All pull requests" /></li>
+                  <li><MenuItem svg={AllRepositories} title="All repositories" /></li>
+                  <li><MenuItem svg={Projects} title="Projects" /></li>
+                  <li><MenuItem svg={Discussions} title="Discussions" /></li>
+                  <li><MenuItem svg={Codespaces} title="Codespaces" /></li>
+                  <li><MenuItem svg={Copilot} title="Copilot" /></li>
                 </ul>
               </li>
               <li className={styles.divisor}></li>
               <li>
+                {/* prettier-ignore */}
                 <ul className={styles.listaGrupo}>
-                  <li><FeatureItem svg={Explore} title="Explore" /></li>
-                  <li><FeatureItem svg={MarketPlace} title="MarketPlace" /></li>
-                  <li><FeatureItem svg={MCPRegistry} title="MCP registry" /></li>
+                  <li><MenuItem svg={Explore} title="Explore" /></li>
+                  <li><MenuItem svg={MarketPlace} title="MarketPlace" /></li>
+                  <li><MenuItem svg={MCPRegistry} title="MCP registry" /></li>
                 </ul>
               </li>
-              <li className={styles.divisor}></li>
+              <li className={styles.divisor}>
+                <ul>
+                  {repositoryData &&
+                    repositoryData.map((i) => (
+                      <RepositoryItem link={i.html_url} key={i.id}>
+                        {i.full_name}
+                      </RepositoryItem>
+                    ))}
+                </ul>
+              </li>
             </ul>
           </aside>
         </div>

@@ -22,7 +22,7 @@ const UserLogin = () => {
         <p className={styles.titleP}>Você tem duas opções:</p>
         <div className={styles.options}>
           <div className={styles.optionPadrao}>
-            <button className={styles.button} onClick={() => setUserToken('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')}>Entrar com um token padrão</button>
+            <button className={styles.button} onClick={() => setUserToken('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')}>Entrar com um token padrão</button>
           </div>
           <div className={styles.optionPersonalizado}>
             <Link

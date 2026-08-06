@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./FeatureItem.module.css";
+import styles from "./MenuItem.module.css";
 
 type props = {
   svg: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -7,7 +7,7 @@ type props = {
   className?: string;
 };
 
-const FeatureItem = ({ svg: Svg, title, className }: props) => {
+const MenuItem = ({ svg: Svg, title, className }: props) => {
   return (
     <Link to="#" className={`${className} ${styles.link}`}>
       <Svg />
@@ -16,4 +16,4 @@ const FeatureItem = ({ svg: Svg, title, className }: props) => {
   );
 };
 
-export default FeatureItem;
+export default MenuItem;
