@@ -73,7 +73,8 @@ const Menu = () => {
               </li>
               <li className={styles.divisor}>
                 <ul>
-                  {repositoryFetchData.data &&
+                  {repositoryFetchData &&
+                    repositoryFetchData.data &&
                     repositoryFetchData.data.map((i) => (
                       <RepositoryItem link={i.html_url} key={i.id}>
                         {i.full_name}
