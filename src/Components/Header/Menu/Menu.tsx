@@ -3,6 +3,8 @@ import MenuIcon from "../../../assets/svg/menu.svg?react";
 import styles from "./Menu.module.css";
 import MenuItem from "../../ui/MenuItem";
 import Button from "../../ui/Button";
+import { useUserContext } from "../../../context/UserContext";
+import RepositoryItem from "../../ui/MenuRepositoryItem";
 
 import LogoIcon from "../../../assets/svg/logo1.svg?react";
 import CloseMenu from "../../../assets/svg/close1.svg?react";
@@ -17,9 +19,7 @@ import Copilot from "../../../assets/svg/copilot.svg?react";
 import Explore from "../../../assets/svg/explore.svg?react";
 import MarketPlace from "../../../assets/svg/market_place.svg?react";
 import MCPRegistry from "../../../assets/svg/mcp_registry.svg?react";
-import { useUserContext } from "../../../context/UserContext";
-import { Link } from "react-router-dom";
-import RepositoryItem from "../../ui/RepositoryItem";
+import Search from "../../../assets/svg/search.svg?react";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
@@ -72,11 +72,19 @@ const Menu = () => {
                 </ul>
               </li>
               <li className={styles.divisor}>
+              </li>
+              <li className={styles.repositories}>
                 <ul>
+                  <li>
+                    <h3 className={styles.h3}>
+                      <span >Top repositories</span> 
+                      <button aria-label="Search for repositories"><Search/></button>
+                    </h3>
+                  </li>
                   {repositoryFetchData &&
                     repositoryFetchData.data &&
                     repositoryFetchData.data.map((i) => (
-                      <RepositoryItem link={i.html_url} key={i.id}>
+                      <RepositoryItem link={i.html_url} key={i.id} avatar={i.owner.avatar_url}>
                         {i.full_name}
                       </RepositoryItem>
                     ))}

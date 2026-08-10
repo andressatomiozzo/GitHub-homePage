@@ -17,6 +17,7 @@ import NotificationsIcon from "../../assets/svg/notification.svg?react";
 import User from "../../assets/svg/user.svg?react";
 
 const Header = () => {
+  
   return (
     <header className={styles.header}>
       <div className={styles.partLeft}>

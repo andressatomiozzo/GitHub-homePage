@@ -29,8 +29,8 @@
   left: 0;
   width: 320px;
   height: 100vh;
-  box-shadow: 0 0 15px  rgba(0, 0, 0, 0.149);
-  border-radius: 0 .7rem .7rem 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.149);
+  border-radius: 0 0.7rem 0.7rem 0;
   z-index: 500;
 }
 
@@ -61,12 +61,6 @@
   padding: 0 8px;
 }
 
-.divisor {
-  width: auto;
-  height: 1px;
-  background-color: var(--N400);
-}
-
 .active {
   background-color: var(--BGItemActive);
   position: relative;
@@ -81,4 +75,41 @@
   height: 1.5rem;
   border-radius: 5px;
   background-color: var(--Blue);
+}
+
+.divisor {
+  width: auto;
+  height: 1px;
+  background-color: var(--N400);
+}
+
+.repositories {
+  padding: 0.5rem;
+}
+
+.h3 {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 .5rem;
+}
+
+.h3 span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--N600);
+
+}
+
+.h3 button {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0 .5rem;
+  height: 2rem;
+  border-radius: .3rem;
+}
+
+.h3 button:hover {
+  background-color: var(--N200);
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./RepositoryItem.module.css";
+import styles from "./MenuRepositoryItem.module.css";
 
 type IRepositoryItem = React.PropsWithChildren & {
   link: string;

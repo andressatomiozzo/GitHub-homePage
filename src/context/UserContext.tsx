@@ -7,6 +7,7 @@ type Repository = {
   id: number | bigint;
   full_name: string;
   html_url: string;
+  owner: { avatar_url: string };
   [key: string]: unknown;
 };
 
@@ -44,12 +45,9 @@ export const UserProvider = ({ children }: React.PropsWithChildren) => {
     [],
   );
 
-  const repositoryFetchData = useFetch<Repository[]>(
-    "GET /user/repos",
-    requestOptions,
-    userToken,
-  );
+  const repositoryFetchData = useFetch<Repository[]>("GET /user/repos", requestOptions, userToken);
 
+  console.log(repositoryFetchData);
   return (
     <UserContext.Provider value={{ userToken, setUserToken, repositoryFetchData }}>{children}</UserContext.Provider>
   );
