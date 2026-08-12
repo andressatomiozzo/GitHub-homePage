@@ -20,6 +20,7 @@ import Explore from "../../../assets/svg/explore.svg?react";
 import MarketPlace from "../../../assets/svg/market_place.svg?react";
 import MCPRegistry from "../../../assets/svg/mcp_registry.svg?react";
 import Search from "../../../assets/svg/search.svg?react";
+import Tooltip from "../../ui/Tooltip";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
@@ -31,9 +32,11 @@ const Menu = () => {
 
   return (
     <>
-      <Button variant="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
-        <MenuIcon />
-      </Button>
+      <Tooltip text={"Open menu"}>
+        <Button variant="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
+          <MenuIcon />
+        </Button>
+      </Tooltip>
       {toggleMenu && (
         <div className={styles.modal} onClick={handleOutideClick}>
           <aside className={`${styles.aside} animeLeft`}>
@@ -71,14 +74,15 @@ const Menu = () => {
                   <li><MenuItem svg={MCPRegistry} title="MCP registry" /></li>
                 </ul>
               </li>
-              <li className={styles.divisor}>
-              </li>
+              <li className={styles.divisor}></li>
               <li className={styles.repositories}>
                 <ul>
                   <li>
                     <h3 className={styles.h3}>
-                      <span >Top repositories</span> 
-                      <button aria-label="Search for repositories"><Search/></button>
+                      <span>Top repositories</span>
+                      <button aria-label="Search for repositories">
+                        <Search />
+                      </button>
                     </h3>
                   </li>
                   {repositoryFetchData &&

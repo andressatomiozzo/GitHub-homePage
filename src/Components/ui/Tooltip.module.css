@@ -1,0 +1,23 @@
+.tooltip {
+  position: relative;
+}
+
+.tooltipText {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: .75rem;
+  background-color: var(--N1000);
+  color: var(--N0);
+  padding: .4rem .5rem;
+  border-radius: .4rem;
+  bottom: -33px;
+}
+
+.tooltip:hover .tooltipText {
+  opacity: 1;
+  visibility: visible;
+}
