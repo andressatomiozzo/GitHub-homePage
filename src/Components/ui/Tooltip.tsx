@@ -1,11 +1,17 @@
 import React from "react";
-import styles from "./Tooltip.module.css"
+import styles from "./Tooltip.module.css";
 
-const Tooltip = ({ text, children }: React.PropsWithChildren & {text: string}) => {
+const Tooltip = ({
+  text,
+  alignment,
+  children,
+}: React.PropsWithChildren & { text: string; alignment?: "left" | "right" }) => {
   return (
     <div className={styles.tooltip}>
       {children}
-      <span className={styles.tooltipText}>{text}</span>
+      <span className={alignment === "left" ? styles.tooltipTextLeft : alignment === "right" ? styles.tooltipTextRight: styles.tooltipText}>
+        {text}
+      </span>
     </div>
   );
 };

@@ -19,6 +19,7 @@
 }
 
 .button1:hover,
+.button2:hover,
 .link1:hover {
   background-color: var(--BGButton);
 }

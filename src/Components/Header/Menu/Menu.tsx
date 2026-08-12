@@ -32,7 +32,7 @@ const Menu = () => {
 
   return (
     <>
-      <Tooltip text={"Open menu"}>
+      <Tooltip text={"Open menu"} alignment="left">
         <Button variant="button1" className={styles.buttonHamburguer} onClick={() => setToggleMenu(true)}>
           <MenuIcon />
         </Button>
@@ -42,14 +42,16 @@ const Menu = () => {
           <aside className={`${styles.aside} animeLeft`}>
             <div className={styles.header}>
               <LogoIcon className={styles.logo} />
-              <Button
-                variant="button2"
-                aria-label="Close Menu"
-                data-tooltip="Close Menu"
-                onClick={() => setToggleMenu(false)}
-              >
-                <CloseMenu />
-              </Button>
+              <Tooltip text={"Close menu"}>
+                <Button
+                  variant="button2"
+                  aria-label="Close Menu"
+                  data-tooltip="Close Menu"
+                  onClick={() => setToggleMenu(false)}
+                >
+                  <CloseMenu />
+                </Button>
+              </Tooltip>
             </div>
             <ul className={styles.lista}>
               <li>

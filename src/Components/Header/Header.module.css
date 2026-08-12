@@ -10,8 +10,7 @@
 .partCenter,
 .partRight,
 .rightWrapper,
-.repoActions,
-.copilot {
+.repoActions {
   display: flex;
   align-items: center;
 }
@@ -25,14 +24,14 @@
 
 .logo,
 .user {
-  height: 1.9rem;
-  width: auto;
   cursor: pointer;
+  height: 2rem;
+  display: block;
 }
 
 .logo svg,
 .user svg {
-  height: 1.9rem;
+  height: 100%;
   width: auto;
 }
 
@@ -95,25 +94,38 @@
 }
 
 .copilot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   height: 2rem;
   width: 3.625rem;
   background-color: var(--N200);
   border: 1px solid var(--N400);
   border-radius: 0.5rem;
-  justify-content: center;
 }
 
-.copilot > svg {
-  margin: 0 0.3rem;
+.copilot > *,
+.copilot svg {
+  height: calc(2rem - 2px);
+  cursor: pointer;
+}
+.copilot > div > svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.copilot > div {
+  border-radius: 0.45rem 0px 0px 0.45rem;
 }
 
 .copilot button {
-  height: 100%;
-  background-color: var(--N200);
   border-left: 1px solid var(--N400);
-  padding-left: 0.2rem;
-  display: flex;
-  align-items: center;
+  background-color: transparent;
+  border-radius: 0px 0.45rem 0.45rem 0px;
+}
+
+.copilot > div:hover,
+.copilot button:hover {
+  background-color: var(--BGButton);
 }
 
 .bar {
