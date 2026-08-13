@@ -46,8 +46,6 @@ export const UserProvider = ({ children }: React.PropsWithChildren) => {
   );
 
   const repositoryFetchData = useFetch<Repository[]>("GET /user/repos", requestOptions, userToken);
-
-  console.log(repositoryFetchData);
   return (
     <UserContext.Provider value={{ userToken, setUserToken, repositoryFetchData }}>{children}</UserContext.Provider>
   );

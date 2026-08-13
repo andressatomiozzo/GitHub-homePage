@@ -26,9 +26,9 @@ const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
   const { repositoryFetchData } = useUserContext();
   const handleOutideClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    console.log(event);
     if (event.target === event.currentTarget) setToggleMenu(false);
   };
+
 
   return (
     <>

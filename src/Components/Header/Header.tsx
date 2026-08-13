@@ -3,7 +3,10 @@ import styles from "./Header.module.css";
 import Menu from "./Menu/Menu";
 import PageLocationTitle from "../PageLocationTitle";
 import Button from "../ui/Button";
+import Tooltip from "../ui/Tooltip";
 import ButtonLink from "../ui/ButtonLink";
+import { useUserContext } from "../../context/UserContext";
+import useMedia from "../../hooks/useMedia";
 
 import LogoIcon from "../../assets/svg/logo1.svg?react";
 import SearchIcon from "../../assets/svg/search.svg?react";
@@ -15,11 +18,13 @@ import PullRequestIcon from "../../assets/svg/pull_request.svg?react";
 import RepositoriesIcon from "../../assets/svg/repositorie.svg?react";
 import NotificationsIcon from "../../assets/svg/notification.svg?react";
 import User from "../../assets/svg/user.svg?react";
-import Tooltip from "../ui/Tooltip";
-import { useUserContext } from "../../context/UserContext";
 
 const Header = () => {
   const { repositoryFetchData } = useUserContext();
+
+  const menuTablet = useMedia("(max-width: 64rem)");
+  const menuMobile = useMedia("(max-width: 48rem)");
+
   return (
     <header className={styles.header}>
       <div className={styles.partLeft}>
@@ -36,23 +41,27 @@ const Header = () => {
         </Link>
         <Button variant="button1" className={styles.searchButton}>
           <SearchIcon />
-          <span className={styles.searchTitle}>
-            Type <kbd>/</kbd> to search
-          </span>
+          {!menuTablet && (
+            <span className={styles.searchTitle}>
+              Type <kbd>/</kbd> to search
+            </span>
+          )}
         </Button>
       </nav>
       <div className={styles.partRight}>
         <div className={styles.rightWrapper}>
-          <div className={styles.copilot}>
-            <Tooltip text={"Chat with Copilot"}>
-              <CopilotIcon />
-            </Tooltip>
-            <button>
-              <ArrowDropDownIcon />
-            </button>
-          </div>
+          {!menuMobile && (
+            <div className={styles.copilot}>
+              <Tooltip text={"Chat with Copilot"}>
+                <CopilotIcon />
+              </Tooltip>
+              <button>
+                <ArrowDropDownIcon />
+              </button>
+            </div>
+          )}
+          {!menuMobile && <div className={styles.bar}></div>}
 
-          <div className={styles.bar}></div>
           <Tooltip text={"Create new"}>
             <Button variant="button1" className={styles.createNew}>
               <AddIcon />
@@ -60,23 +69,25 @@ const Header = () => {
             </Button>
           </Tooltip>
 
-          <div className={styles.repoActions}>
-            <Tooltip text={"All issues"}>
-              <ButtonLink to="/issues/assigned">
-                <IssuesIcon />
-              </ButtonLink>
-            </Tooltip>
-            <Tooltip text={"All pull requests"}>
-              <ButtonLink to="/pulls/inbox">
-                <PullRequestIcon />
-              </ButtonLink>
-            </Tooltip>
-            <Tooltip text={"All repositories"}>
-              <ButtonLink to="/repos">
-                <RepositoriesIcon />
-              </ButtonLink>
-            </Tooltip>
-          </div>
+          {!menuMobile && (
+            <div className={styles.repoActions}>
+              <Tooltip text={"All issues"}>
+                <ButtonLink to="/issues/assigned">
+                  <IssuesIcon />
+                </ButtonLink>
+              </Tooltip>
+              <Tooltip text={"All pull requests"}>
+                <ButtonLink to="/pulls/inbox">
+                  <PullRequestIcon />
+                </ButtonLink>
+              </Tooltip>
+              <Tooltip text={"All repositories"}>
+                <ButtonLink to="/repos">
+                  <RepositoriesIcon />
+                </ButtonLink>
+              </Tooltip>
+            </div>
+          )}
         </div>
         <Tooltip text={"Notifications"}>
           <ButtonLink to="/notifications">
