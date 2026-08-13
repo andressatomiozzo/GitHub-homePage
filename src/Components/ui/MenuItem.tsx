@@ -9,7 +9,7 @@ type props = {
 
 const MenuItem = ({ svg: Svg, title, className }: props) => {
   return (
-    <Link to="#" className={`${className} ${styles.link}`}>
+    <Link to="#" className={`${styles.link} ${className}`}>
       <Svg />
       <span className={styles.title}>{title}</span>
     </Link>

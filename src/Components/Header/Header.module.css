@@ -30,9 +30,10 @@
 }
 
 .logo svg,
-.user svg {
+.user svg, .user img {
   height: 100%;
   width: auto;
+  border-radius: 50%;
 }
 
 .logo svg *,

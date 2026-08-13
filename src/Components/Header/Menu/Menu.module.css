@@ -19,6 +19,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   background-color: var(--BGModal);
 }
 
@@ -64,6 +65,10 @@
 .active {
   background-color: var(--BGItemActive);
   position: relative;
+}
+
+.active span {
+  font-weight: 600;
 }
 
 .active::before {

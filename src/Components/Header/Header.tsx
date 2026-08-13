@@ -16,8 +16,10 @@ import RepositoriesIcon from "../../assets/svg/repositorie.svg?react";
 import NotificationsIcon from "../../assets/svg/notification.svg?react";
 import User from "../../assets/svg/user.svg?react";
 import Tooltip from "../ui/Tooltip";
+import { useUserContext } from "../../context/UserContext";
 
 const Header = () => {
+  const { repositoryFetchData } = useUserContext();
   return (
     <header className={styles.header}>
       <div className={styles.partLeft}>
@@ -41,9 +43,6 @@ const Header = () => {
       </nav>
       <div className={styles.partRight}>
         <div className={styles.rightWrapper}>
-
-
-
           <div className={styles.copilot}>
             <Tooltip text={"Chat with Copilot"}>
               <CopilotIcon />
@@ -52,9 +51,6 @@ const Header = () => {
               <ArrowDropDownIcon />
             </button>
           </div>
-
-
-
 
           <div className={styles.bar}></div>
           <Tooltip text={"Create new"}>
@@ -90,7 +86,11 @@ const Header = () => {
 
         <Tooltip text={"Open user navigation menu"} alignment="right">
           <div className={styles.user}>
-            <User />
+            {repositoryFetchData && repositoryFetchData.data ? (
+              <img src={repositoryFetchData.data[1].owner.avatar_url} />
+            ) : (
+              <User />
+            )}
           </div>
         </Tooltip>
       </div>
