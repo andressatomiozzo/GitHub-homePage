@@ -15,7 +15,7 @@
 
 .button2 {
   border: none;
-  background-color: var(--N0);
+  background-color: transparent;
 }
 
 .button1:hover,

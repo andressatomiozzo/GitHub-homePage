@@ -6,13 +6,13 @@ import styles from "./UserLogin.module.css";
 
 const UserLogin = () => {
   const { userToken, setUserToken } = useUserContext();
-  const [userValue, setUserValue] = React.useState("")
+  const [userValue, setUserValue] = React.useState("");
 
   const handleUserSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     // setUserToken(event.target)
     event.preventDefault();
-    setUserToken(userValue)
-  }
+    setUserToken(userValue);
+  };
 
   if (userToken) return null;
   return (
@@ -22,7 +22,16 @@ const UserLogin = () => {
         <p className={styles.titleP}>Você tem duas opções:</p>
         <div className={styles.options}>
           <div className={styles.optionPadrao}>
-            <button className={styles.button} onClick={() => setUserToken('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')}>Entrar com um token padrão</button>
+            <button
+              className={styles.button}
+              onClick={() =>
+                setUserToken(
+                  "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",
+                )
+              }
+            >
+              Entrar com um token padrão
+            </button>
           </div>
           <div className={styles.optionPersonalizado}>
             <Link
@@ -33,15 +42,22 @@ const UserLogin = () => {
             >
               Crie um Personal Access Token
             </Link>
-            <form onSubmit={handleUserSubmit} >
+            <form onSubmit={handleUserSubmit}>
               <label htmlFor="user" className={styles.userLabel}>
                 Insira seu Token Personalizado:
               </label>
-              <input type="text" name="user" id="user" className={styles.userInput} value={userValue} onChange={({target}) => setUserValue(target.value)}/>
+              <input
+                type="text"
+                name="user"
+                id="user"
+                className={styles.userInput}
+                value={userValue}
+                onChange={({ target }) => setUserValue(target.value)}
+              />
               <button className={styles.button}>Entrar</button>
             </form>
             <p className={styles.tokenInfo}>
-              Para mais informações sobre Fine-grained Personal Access Token acesse a 
+              Para mais informações sobre Fine-grained Personal Access Token acesse -
               <Link
                 to={
                   "https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?ref=medevel.com&utm_source=chatgpt.com"
@@ -51,7 +67,8 @@ const UserLogin = () => {
                 className={styles.tokenInfoLink}
               >
                 Documentação do GitHub
-              </Link>.
+              </Link>
+              .
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
-import Header from "./components/Header/Header";
+import Header from "./pages/Header/Header";
 import Home from "./pages/Home/Home";
 import UserLogin from "./pages/UserLogin";
 
@@ -13,7 +13,7 @@ const App = () => {
       <BrowserRouter>
         <UserLogin />
         <Header />
-        <Testes/>
+        <Testes />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

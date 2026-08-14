@@ -9,7 +9,6 @@
 .partLeft,
 .partCenter,
 .partRight,
-.rightWrapper,
 .repoActions {
   display: flex;
   align-items: center;
@@ -89,7 +88,6 @@
 }
 
 .partRight,
-.rightWrapper,
 .repoActions {
   gap: 0.725rem;
 }

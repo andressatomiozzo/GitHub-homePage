@@ -1,26 +1,26 @@
 import React from "react";
-import MenuIcon from "../../../assets/svg/menu.svg?react";
 import styles from "./Menu.module.css";
-import MenuItem from "../../ui/MenuItem";
-import Button from "../../ui/Button";
-import { useUserContext } from "../../../context/UserContext";
-import RepositoryItem from "../../ui/MenuRepositoryItem";
+import MenuItem from "../ui/MenuItem";
+import Button from "../ui/Button";
+import RepositoryItem from "../ui/MenuRepositoryItem";
+import Tooltip from "../ui/Tooltip";
+import { useUserContext } from "../../context/UserContext";
 
-import LogoIcon from "../../../assets/svg/logo1.svg?react";
-import CloseMenu from "../../../assets/svg/close1.svg?react";
-import Home from "../../../assets/svg/home.svg?react";
-import AllIssues from "../../../assets/svg/issues.svg?react";
-import AllPullRequest from "../../../assets/svg/pull_request.svg?react";
-import AllRepositories from "../../../assets/svg/repositorie.svg?react";
-import Projects from "../../../assets/svg/project.svg?react";
-import Discussions from "../../../assets/svg/discussions.svg?react";
-import Codespaces from "../../../assets/svg/codespaces.svg?react";
-import Copilot from "../../../assets/svg/copilot.svg?react";
-import Explore from "../../../assets/svg/explore.svg?react";
-import MarketPlace from "../../../assets/svg/market_place.svg?react";
-import MCPRegistry from "../../../assets/svg/mcp_registry.svg?react";
-import Search from "../../../assets/svg/search.svg?react";
-import Tooltip from "../../ui/Tooltip";
+import MenuIcon from "../../assets/svg/menu.svg?react";
+import LogoIcon from "../../assets/svg/logo1.svg?react";
+import CloseMenu from "../../assets/svg/close1.svg?react";
+import Home from "../../assets/svg/home.svg?react";
+import AllIssues from "../../assets/svg/issues.svg?react";
+import AllPullRequest from "../../assets/svg/pull_request.svg?react";
+import AllRepositories from "../../assets/svg/repositorie.svg?react";
+import Projects from "../../assets/svg/project.svg?react";
+import Discussions from "../../assets/svg/discussions.svg?react";
+import Codespaces from "../../assets/svg/codespaces.svg?react";
+import Copilot from "../../assets/svg/copilot.svg?react";
+import Explore from "../../assets/svg/explore.svg?react";
+import MarketPlace from "../../assets/svg/market_place.svg?react";
+import MCPRegistry from "../../assets/svg/mcp_registry.svg?react";
+import Search from "../../assets/svg/search.svg?react";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);

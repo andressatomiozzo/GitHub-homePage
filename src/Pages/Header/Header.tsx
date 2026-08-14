@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import Menu from "./Menu/Menu";
-import PageLocationTitle from "../PageLocationTitle";
-import Button from "../ui/Button";
-import Tooltip from "../ui/Tooltip";
-import ButtonLink from "../ui/ButtonLink";
+import Menu from "../../components/SideMenu/Menu";
+import PageLocationTitle from "../../components/PageLocationTitle";
+import Button from "../../components/ui/Button";
+import Tooltip from "../../components/ui/Tooltip";
+import ButtonLink from "../../components/ui/ButtonLink";
 import { useUserContext } from "../../context/UserContext";
 import useMedia from "../../hooks/useMedia";
 
@@ -18,12 +18,29 @@ import PullRequestIcon from "../../assets/svg/pull_request.svg?react";
 import RepositoriesIcon from "../../assets/svg/repositorie.svg?react";
 import NotificationsIcon from "../../assets/svg/notification.svg?react";
 import User from "../../assets/svg/user.svg?react";
+import React from "react";
 
 const Header = () => {
   const { repositoryFetchData } = useUserContext();
 
-  const menuTablet = useMedia("(max-width: 64rem)");
-  const menuMobile = useMedia("(max-width: 48rem)");
+  const media64 = useMedia("(max-width: 64rem)");
+  const media48 = useMedia("(max-width: 48rem)");
+  const media34 = useMedia("(max-width: 34rem)");
+  const media22 = useMedia("(max-width: 22rem)");
+
+  React.useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "/") {
+        console.log("A tecla / foi pressionada!");
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -36,12 +53,17 @@ const Header = () => {
         </Tooltip>
       </div>
       <nav className={styles.partCenter}>
-        <Link to="/" className={styles.pageLocationTitle}>
-          <PageLocationTitle>Dashboard</PageLocationTitle>
-        </Link>
+        {media22 ? (
+          <Button variant="button2"></Button>
+        ) : (
+          <Link to="/" className={styles.pageLocationTitle}>
+            <PageLocationTitle>Dashboard</PageLocationTitle>
+          </Link>
+        )}
+
         <Button variant="button1" className={styles.searchButton}>
           <SearchIcon />
-          {!menuTablet && (
+          {!media64 && (
             <span className={styles.searchTitle}>
               Type <kbd>/</kbd> to search
             </span>
@@ -49,8 +71,8 @@ const Header = () => {
         </Button>
       </nav>
       <div className={styles.partRight}>
-        <div className={styles.rightWrapper}>
-          {!menuMobile && (
+        {!media48 && (
+          <>
             <div className={styles.copilot}>
               <Tooltip text={"Chat with Copilot"}>
                 <CopilotIcon />
@@ -59,36 +81,39 @@ const Header = () => {
                 <ArrowDropDownIcon />
               </button>
             </div>
-          )}
-          {!menuMobile && <div className={styles.bar}></div>}
+            <div className={styles.bar}></div>
+          </>
+        )}
 
+        {!media34 && (
           <Tooltip text={"Create new"}>
             <Button variant="button1" className={styles.createNew}>
               <AddIcon />
               <ArrowDropDownIcon />
             </Button>
           </Tooltip>
+        )}
 
-          {!menuMobile && (
-            <div className={styles.repoActions}>
-              <Tooltip text={"All issues"}>
-                <ButtonLink to="/issues/assigned">
-                  <IssuesIcon />
-                </ButtonLink>
-              </Tooltip>
-              <Tooltip text={"All pull requests"}>
-                <ButtonLink to="/pulls/inbox">
-                  <PullRequestIcon />
-                </ButtonLink>
-              </Tooltip>
-              <Tooltip text={"All repositories"}>
-                <ButtonLink to="/repos">
-                  <RepositoriesIcon />
-                </ButtonLink>
-              </Tooltip>
-            </div>
-          )}
-        </div>
+        {!media48 && (
+          <div className={styles.repoActions}>
+            <Tooltip text={"All issues"}>
+              <ButtonLink to="/issues/assigned">
+                <IssuesIcon />
+              </ButtonLink>
+            </Tooltip>
+            <Tooltip text={"All pull requests"}>
+              <ButtonLink to="/pulls/inbox">
+                <PullRequestIcon />
+              </ButtonLink>
+            </Tooltip>
+            <Tooltip text={"All repositories"}>
+              <ButtonLink to="/repos">
+                <RepositoriesIcon />
+              </ButtonLink>
+            </Tooltip>
+          </div>
+        )}
+
         <Tooltip text={"Notifications"}>
           <ButtonLink to="/notifications">
             <NotificationsIcon />
