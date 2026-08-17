@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Menu.module.css";
 import MenuItem from "../ui/MenuItem";
 import Button from "../ui/Button";
-import RepositoryItem from "../ui/MenuRepositoryItem";
+import RepositoryItem from "../ui/RepositoryItem";
 import Tooltip from "../ui/Tooltip";
 import { useUserContext } from "../../context/UserContext";
 

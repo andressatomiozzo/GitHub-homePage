@@ -1,6 +1,13 @@
 .input {
-  background-color: var(--N200);
+  background-color: var(--N0);
   border: 1px solid var(--N400);
   height: 2rem;
   border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.3rem 0.75rem;
+}
+
+.input:focus{
+  border: 2px solid var(--Blue);
+  outline: none;
 }

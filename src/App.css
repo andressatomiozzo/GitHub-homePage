@@ -10,3 +10,13 @@
     transform: initial;
   }
 }
+
+.pageModelContainer {
+  display: grid;
+  grid-template-columns: 21rem 1fr;
+}
+
+.pageModelAside {
+  border-right: 1px solid var(--N400);
+  min-height: 100dvh;
+}

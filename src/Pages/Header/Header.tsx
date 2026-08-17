@@ -61,15 +61,13 @@ const Header = () => {
           </Link>
         )}
 
+        {/* prettier-ignore */}
         <Button variant="button1" className={styles.searchButton}>
           <SearchIcon />
-          {!media64 && (
-            <span className={styles.searchTitle}>
-              Type <kbd>/</kbd> to search
-            </span>
-          )}
+          {!media64 && <span className={styles.searchTitle}>Type <kbd>/</kbd> to search</span>}
         </Button>
       </nav>
+      
       <div className={styles.partRight}>
         {!media48 && (
           <>
