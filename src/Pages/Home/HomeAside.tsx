@@ -1,11 +1,10 @@
+import React from "react";
+import styles from "./HomeAside.module.css";
 import { useUserContext } from "../../context/UserContext";
 import ButtonLink from "../../components/ui/ButtonLink";
-import styles from "./HomeAside.module.css";
 import RepositoryItem from "../../components/ui/RepositoryItem";
 
-import Repositorie from "../../assets/svg/repositorie.svg?react";
-import Input from "../../components/ui/RepositoryInput";
-import React from "react";
+import Repository from "../../assets/svg/repository.svg?react";
 
 const HomeAside = () => {
   const { repositoryFetchData } = useUserContext();
@@ -21,19 +20,19 @@ const HomeAside = () => {
       <div className={styles.title}>
         <h2 className={styles.h2}>Top repositories</h2>
         <ButtonLink to="/" className={styles.link}>
-          <Repositorie />
+          <Repository />
           <span>New</span>
         </ButtonLink>
       </div>
-      <Input
+      <input
         placeholder="Find a repository..."
-        classNameProp={styles.input}
+        className={`inputRepository ${styles.input}`}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
       <ul>
         {filteredRepositories.map((r) => (
-          <RepositoryItem link={r.html_url} avatar={r.owner.avatar_url} key={r.id} classNameProps={styles.r}>
+          <RepositoryItem link={r.html_url} avatar={r.owner.avatar_url} key={r.id} classNameProps={styles.repository}>
             {r.full_name}
           </RepositoryItem>
         ))}

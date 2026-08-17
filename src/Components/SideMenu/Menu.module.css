@@ -97,24 +97,42 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
 }
 
 .h3 span {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--N600);
-
 }
 
 .h3 button {
   background-color: transparent;
   cursor: pointer;
-  padding: 0 .5rem;
   height: 2rem;
-  border-radius: .3rem;
+  width: 2rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .h3 button:hover {
   background-color: var(--N200);
+}
+
+.inputLi {
+  padding: 0.375rem 0.5rem;
+}
+
+.inputLi > span {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.inputLi input {
+  font-size: 0.83rem;
+  border: none;
+  outline: none;
 }

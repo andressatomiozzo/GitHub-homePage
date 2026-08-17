@@ -20,3 +20,17 @@
   border-right: 1px solid var(--N400);
   min-height: 100dvh;
 }
+
+.inputRepository {
+  background-color: var(--N0);
+  border: 1px solid var(--N400);
+  height: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.3rem 0.75rem;
+}
+
+.inputRepository:focus-within{
+  border: 2px solid var(--Blue);
+  outline: none;
+}

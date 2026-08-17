@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import Menu from "../../components/SideMenu/Menu";
@@ -15,10 +16,9 @@ import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
 import AddIcon from "../../assets/svg/add.svg?react";
 import IssuesIcon from "../../assets/svg/issues.svg?react";
 import PullRequestIcon from "../../assets/svg/pull_request.svg?react";
-import RepositoriesIcon from "../../assets/svg/repositorie.svg?react";
+import RepositoriesIcon from "../../assets/svg/repository.svg?react";
 import NotificationsIcon from "../../assets/svg/notification.svg?react";
 import User from "../../assets/svg/user.svg?react";
-import React from "react";
 
 const Header = () => {
   const { repositoryFetchData } = useUserContext();
@@ -67,7 +67,7 @@ const Header = () => {
           {!media64 && <span className={styles.searchTitle}>Type <kbd>/</kbd> to search</span>}
         </Button>
       </nav>
-      
+
       <div className={styles.partRight}>
         {!media48 && (
           <>

@@ -1,4 +1,3 @@
-import React from "react";
 import HomeAside from "./HomeAside";
 
 const Home = () => {
