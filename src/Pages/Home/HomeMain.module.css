@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  grid-template-columns: 56.25rem 18.75rem;
+  justify-content: center;
+  padding: 2.5rem;
+  gap: 2.5rem;
+
+  @media (max-width: 104.5rem) {
+    grid-template-columns: 56.25rem 1fr;
+  }
+
+  @media (max-width: 102rem) {
+    grid-template-columns: 1fr 16.5rem;
+  }
+
+  @media (max-width: 80rem) {
+    grid-template-columns: 42.5rem;
+    padding: 1.5rem;
+  }
+
+    @media (max-width: 67rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.container main {
+  max-width: 56.25rem;
+}
+
+.h2{
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.container aside {
+  max-width: 18.75rem;
+}

@@ -1,13 +1,11 @@
 import HomeAside from "./HomeAside";
+import HomeMain from "./HomeMain";
 
 const Home = () => {
   return (
     <div className="pageModelContainer">
       <HomeAside/>
-      <div className="pageModelMain">
-        <main>main</main>
-        <aside>Asside2</aside>
-      </div>
+      <HomeMain />
     </div>
   );
 };

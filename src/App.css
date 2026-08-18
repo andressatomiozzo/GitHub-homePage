@@ -25,12 +25,12 @@
   background-color: var(--N0);
   border: 1px solid var(--N400);
   height: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.35rem;
   width: 100%;
-  padding: 0.3rem 0.75rem;
+  padding: 0px;
 }
 
 .inputRepository:focus-within{
-  border: 2px solid var(--Blue);
-  outline: none;
+  border: 1px solid var(--Blue);
+  outline: 1px solid var(--Blue);
 }
