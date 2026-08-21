@@ -21,16 +21,29 @@
   min-height: 100dvh;
 }
 
-.inputRepository {
+.smallTitle {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--N800);
+}
+
+.inputRepository,
+.textarea {
   background-color: var(--N0);
   border: 1px solid var(--N400);
   height: 2rem;
-  border-radius: 0.35rem;
+  border-radius: var(--BR1);
   width: 100%;
-  padding: 0px;
 }
 
-.inputRepository:focus-within{
+.inputRepository input,
+.textarea textarea {
+  outline: none;
+}
+
+.inputRepository:has(input:focus),
+.inputRepository:focus,
+.textarea:has(textarea:focus) {
   border: 1px solid var(--Blue);
   outline: 1px solid var(--Blue);
 }

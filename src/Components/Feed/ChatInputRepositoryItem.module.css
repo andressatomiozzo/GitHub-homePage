@@ -1,0 +1,73 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0.5rem;
+  padding: 0.375rem 0.5rem;
+  border-radius: var(--BR1);
+  cursor: pointer;
+  position: relative;
+}
+
+.item:hover {
+  background-color: var(--BGButton);
+}
+
+.item:hover .square *{
+  fill: var(--BGButton);
+}
+
+.item:hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0.3rem;
+  height: 1.5rem;
+  background-color: var(--Blue);
+  border-radius: var(--BR1);
+  left: -0.5rem;
+}
+
+.square {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--N600);
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square *{
+  fill: var(--N0);
+}
+
+.squareSelected{
+  background-color: var(--Blue);
+  border-color: var(--Blue);
+}
+
+.svg svg {
+  display: block;
+  margin: auto;
+}
+
+.text {
+  font-size: 0.875rem;
+  position: relative;
+  width: 100%;
+}
+
+.text::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--N400);
+  position: absolute;
+  top: -0.375rem;
+}
+
+.firstChild::before {
+  display: none;
+}

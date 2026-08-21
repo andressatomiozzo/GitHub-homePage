@@ -6,10 +6,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-color: transparent;
   border: 1px solid var(--N400);
-  border-radius: 0.5rem;
+  border-radius: var(--BR1);
   cursor: pointer;
 }
 
@@ -21,5 +20,5 @@
 .button1:hover,
 .button2:hover,
 .link1:hover {
-  background-color: var(--BGButton);
+  background-color: var(--BGItem);
 }

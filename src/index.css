@@ -19,6 +19,9 @@
   --Green1: #1f883d;
   --Green2: #1c8139;
 
+  --BR1: 0.35rem;
+  --BR2: 0.8rem;
+
   --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
   --fontStack-sansSerif:
     "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif,
@@ -36,6 +39,7 @@
 a,
 li {
   text-decoration: none;
+  color: var(--N800);
 }
 
 svg * {

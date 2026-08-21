@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HomeMain.module.css";
 import useMedia from "../../hooks/useMedia";
-import ChatInput from "../../components/Feed/ChatInput";
+import Chat from "../../components/Feed/Chat";
 
 
 const HomeMain = () => {
@@ -11,7 +11,7 @@ const HomeMain = () => {
     <div className={`pageModelMain ${styles.container}`}>
       <main>
         <h2 className={styles.h2}>Home</h2>
-        <ChatInput/>
+        <Chat/>
       </main>
       {!media80 && <aside>aside</aside>}
     </div>

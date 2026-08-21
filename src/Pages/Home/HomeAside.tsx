@@ -18,7 +18,7 @@ const HomeAside = () => {
   return (
     <aside className={`pageModelAside ${styles.asideContainer}`}>
       <div className={styles.title}>
-        <h2 className={styles.h2}>Top repositories</h2>
+        <h2 className="smallTitle">Top repositories</h2>
         <ButtonLink to="/" className={styles.link}>
           <Repository />
           <span>New</span>
