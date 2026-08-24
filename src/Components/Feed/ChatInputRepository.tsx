@@ -5,7 +5,7 @@ import Button from "../ui/Button";
 import { useUserContext } from "../../context/UserContext";
 
 import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
-import RepositoriesIcon from "../../assets/svg/repositories.svg?react"
+import RepositoriesIcon from "../../assets/svg/repositories.svg?react";
 import RepositoryIcon from "../../assets/svg/repository.svg?react";
 import Search from "../../assets/svg/search.svg?react";
 
@@ -39,9 +39,8 @@ const ChatInputRepository = ({ openMenu, handleDropDownClick }: IChatInputReposi
         className={`${styles.button} ${openMenu === 2 && styles.activeBtn}`}
         onClick={() => handleDropDownClick(2)}
       >
-        {select.length <=1 ? <RepositoryIcon />
-         : <RepositoriesIcon/>}
-        
+        {select.length <= 1 ? <RepositoryIcon /> : <RepositoriesIcon />}
+
         {select.length === 0 ? (
           <span>All repositories</span>
         ) : select.length === 1 ? (

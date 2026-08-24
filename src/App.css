@@ -14,6 +14,9 @@
 .pageModelContainer {
   display: grid;
   grid-template-columns: 21rem 1fr;
+  @media (max-width: 87.5rem) {
+    grid-template-columns: 20rem 1fr;
+  }
 }
 
 .pageModelAside {

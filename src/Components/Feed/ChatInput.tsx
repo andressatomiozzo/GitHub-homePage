@@ -6,22 +6,19 @@ import Tooltip from "../ui/Tooltip";
 import RepositoryItem from "../ui/RepositoryItem";
 
 import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
-import AddIcon from "../../assets/svg/add.svg?react";
 import CopilotIcon from "../../assets/svg/copilot.svg?react";
 import TokenIcon from "../../assets/svg/token.svg?react";
 import SendIcon from "../../assets/svg/send.svg?react";
-import FileIcon from "../../assets/svg/file2.svg?react";
-import FolderIcon from "../../assets/svg/folder.svg?react";
-import UploadIcon from "../../assets/svg/upload.svg?react";
-import { useUserContext } from "../../context/UserContext";
 import ChatInputRepository from "./ChatInputRepository";
+import ChatInputAddFile from "./ChatInputAddFIle";
+import ChatInputAddFileItem from "./ChatInputAddFileItem";
+import MoreHorizontalIcon from "../../assets/svg/more_horiz.svg?react";
 
 export type IChatInputProps = {
   openMenu: number | null;
   setOpenMenu: React.Dispatch<React.SetStateAction<number | null>>;
   handleDropDownClick: (n: number) => void;
 };
-
 
 const ChatInput = () => {
   const [openMenu, setOpenMenu] = React.useState<number | null>(null);
@@ -47,10 +44,23 @@ const ChatInput = () => {
     }
   };
 
-
+  const [fileData, setFileData] = React.useState<File[] | null>(null);
 
   return (
     <div className={`textarea ${styles.inputContainer}`}>
+      {fileData && (
+        <div className={styles.filesWrapper}>
+          <ul>
+            {fileData.map((e) => (
+              <ChatInputAddFileItem key={e.name + e.lastModified}>{e.name}</ChatInputAddFileItem>
+            ))}
+          </ul>
+          <Button variant="button2">
+            <MoreHorizontalIcon />
+          </Button>
+        </div>
+      )}
+
       <textarea
         name="homeFeed"
         id="homeFeed"
@@ -62,16 +72,13 @@ const ChatInput = () => {
           <ChatInputAskButton openMenu={openMenu} setOpenMenu={setOpenMenu} handleDropDownClick={handleDropDownClick} />
         </div>
         <div className={styles.inputExtra}>
-          <ChatInputRepository openMenu={openMenu} handleDropDownClick={handleDropDownClick}/>
-          <Tooltip text="Add files, and spaces">
-            <Button
-              variant="button1"
-              className={`${styles.button} ${openMenu === 3 && styles.activeBtn}`}
-              onClick={() => handleDropDownClick(3)}
-            >
-              <AddIcon />
-            </Button>
-          </Tooltip>
+          <ChatInputRepository openMenu={openMenu} handleDropDownClick={handleDropDownClick} />
+          <ChatInputAddFile
+            openMenu={openMenu}
+            handleDropDownClick={handleDropDownClick}
+            fileData={fileData}
+            setFileData={setFileData}
+          />
         </div>
         <div className={styles.inputActions}>
           <Button
