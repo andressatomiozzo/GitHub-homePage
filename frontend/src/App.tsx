@@ -1,17 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { UserProvider } from "./context/UserContext";
+import { UserProvider } from "../../src/context/UserContext";
 import Header from "./pages/Header/Header";
 import Home from "./pages/Home/Home";
-import UserLogin from "./pages/UserLogin";
 
 import "./App.css";
 import Testes from "./testes";
+import LoginButtons from "./pages/Login/LoginButtons";
 
 const App = () => {
   return (
     <UserProvider>
       <BrowserRouter>
-        <UserLogin />
+        <LoginButtons />
         <Header />
         <Testes />
         <Routes>

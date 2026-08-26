@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ChatInput.module.css";
 import ChatInputRepositoryItem from "./ChatInputRepositoryItem";
 import Button from "../ui/Button";
-import { useUserContext } from "../../context/UserContext";
+import { useUserContext } from "../../../../src/context/UserContext";
 
 import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
 import RepositoriesIcon from "../../assets/svg/repositories.svg?react";
