@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./HomeMain.module.css";
+import styles from "./DashboardMain.module.css";
 import useMedia from "../../hooks/useMedia";
 import Chat from "../../components/Feed/Chat";
 
-const HomeMain = () => {
+const DashboardMain = () => {
   const media80 = useMedia("(max-width: 80rem)");
 
   return (
@@ -17,4 +17,4 @@ const HomeMain = () => {
   );
 };
 
-export default HomeMain;
+export default DashboardMain;

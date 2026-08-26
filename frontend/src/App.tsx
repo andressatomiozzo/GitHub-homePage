@@ -1,21 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { UserProvider } from "../../src/context/UserContext";
-import Header from "./pages/Header/Header";
-import Home from "./pages/Home/Home";
+import { UserProvider } from "./context/UserContext";
+import { DashboardPage } from "./pages/Home/DashboardPage";
 
 import "./App.css";
-import Testes from "./testes";
-import LoginButtons from "./pages/Login/LoginButtons";
+import { LoginPage } from "./pages/Login/LoginPage";
 
 const App = () => {
   return (
     <UserProvider>
       <BrowserRouter>
-        <LoginButtons />
-        <Header />
-        <Testes />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

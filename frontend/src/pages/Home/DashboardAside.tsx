@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./HomeAside.module.css";
+import styles from "./DashboardAside.module.css";
 import { useUserContext } from "../../context/UserContext";
 import ButtonLink from "../../components/ui/ButtonLink";
 import RepositoryItem from "../../components/ui/RepositoryItem";
 
 import Repository from "../../assets/svg/repository.svg?react";
 
-const HomeAside = () => {
+const DashboardAside = () => {
   const { repositoryFetchData } = useUserContext();
   const [inputValue, setInputValue] = React.useState<string>("");
 
@@ -41,4 +41,4 @@ const HomeAside = () => {
   );
 };
 
-export default HomeAside;
+export default DashboardAside;
