@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from "./LoginPage.module.css"
 
 export function LoginPage() {
   const handleGitHubLogin = () => {
@@ -6,10 +7,10 @@ export function LoginPage() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px', gap: '15px' }}>
+    <div className={styles.wrapper}>
       <h1>GitClone - Login</h1>
-      <p>Entre com sua conta para acessar o painel</p>
-      <button onClick={handleGitHubLogin} style={{ padding: '10px 20px', cursor: 'pointer' }}>
+      <p>Entre com sua conta para acessar a aplicação</p>
+      <button onClick={handleGitHubLogin} >
         Entrar com GitHub
       </button>
     </div>
