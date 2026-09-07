@@ -154,4 +154,6 @@
   display: flex;
   gap: .5rem;
   overflow-x: scroll;
+  overflow-y: visible;
+  white-space: nowrap;
 }

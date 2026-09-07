@@ -4,19 +4,28 @@
 
 .tooltipText,
 .tooltipTextLeft,
-.tooltipTextRight {
-  position: absolute;
+.tooltipTextRight,
+.tooltipPortalBox {
   opacity: 0;
   visibility: hidden;
   transition: 0.2s;
   display: inline-block;
   white-space: nowrap;
-  font-size: 0.75rem;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
   background-color: var(--N800);
   color: var(--N0);
   padding: 0.4rem 0.5rem;
   border-radius: 0.4rem;
-  top: 120%;
+  z-index: 2;
+}
+
+.tooltipText,
+.tooltipTextLeft,
+.tooltipTextRight {
+  position: absolute;
+  top: 120%; /* aparece abaixo do elemento */
+  z-index: 2; /* garante que fique acima da lista */
 }
 
 .tooltipText {
@@ -34,7 +43,24 @@
 
 .tooltip:hover .tooltipText,
 .tooltip:hover .tooltipTextLeft,
-.tooltip:hover .tooltipTextRight {
+.tooltip:hover .tooltipTextRight,
+.tooltipPortalWrapper:hover .tooltipPortalBox {
   opacity: 1;
   visibility: visible;
+}
+
+/* -------- Portal -------- */
+
+.tooltipPortalWrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltipPortalWrapper > span{
+  margin: 0;
+}
+
+.tooltipPortalBox {
+  transform: translateX(-50%);
 }

@@ -3,7 +3,12 @@
   align-items: center;
   border-radius: var(--BR1);
   border: 1px solid var(--N400);
-  height: 2rem;
+  height: calc(2rem + 2px);
+  cursor: pointer;
+}
+
+.li:hover{
+  background-color: var(--N200);
 }
 
 .li span{

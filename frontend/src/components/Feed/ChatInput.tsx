@@ -3,14 +3,13 @@ import styles from "./ChatInput.module.css";
 import ChatInputAskButton from "./ChatInputAskButton";
 import Button from "../ui/Button";
 import Tooltip from "../ui/Tooltip";
-import RepositoryItem from "../ui/RepositoryItem";
 
 import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
 import CopilotIcon from "../../assets/svg/copilot.svg?react";
 import TokenIcon from "../../assets/svg/token.svg?react";
 import SendIcon from "../../assets/svg/send.svg?react";
 import ChatInputRepository from "./ChatInputRepository";
-import ChatInputAddFile from "./ChatInputAddFIle";
+import ChatInputAddFile from "./ChatInputAddFile";
 import ChatInputAddFileItem from "./ChatInputAddFileItem";
 import MoreHorizontalIcon from "../../assets/svg/more_horiz.svg?react";
 
@@ -45,14 +44,15 @@ const ChatInput = () => {
   };
 
   const [fileData, setFileData] = React.useState<File[] | null>(null);
+  const listRef = React.useRef<HTMLUListElement>(null);
 
   return (
     <div className={`textarea ${styles.inputContainer}`}>
       {fileData && (
         <div className={styles.filesWrapper}>
-          <ul>
+          <ul ref={listRef}>
             {fileData.map((e) => (
-              <ChatInputAddFileItem key={e.name + e.lastModified}>{e.name}</ChatInputAddFileItem>
+              <ChatInputAddFileItem key={e.name + e.lastModified} containerRef={listRef}>{e.name}</ChatInputAddFileItem>
             ))}
           </ul>
           <Button variant="button2">

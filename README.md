@@ -42,11 +42,21 @@ Acesse o [Link](https://dogs-wine.vercel.app/)
 # Clonar o repositório
 git clone https://github.com/andressatomiozzo/github-homepage.git
 
+# Entrar na pasta do frontend
+cd .\frontend\
+
 # Instalar dependências
 npm install
 
 # Rodar o projeto
 npm run dev
+
+# EM outro terminal, entrar na pasta do backend
+cd .\backend\
+
+# Rodar o projeto
+./mvnw spring-boot:run
+
 ```
 
 <br>
