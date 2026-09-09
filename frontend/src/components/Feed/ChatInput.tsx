@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./ChatInput.module.css";
 import ChatInputAskButton from "./ChatInputAskButton";
+import ChatInputRepository from "./ChatInputRepository";
+import ChatInputAddFile from "./ChatInputAdd/ChatInputAddFile";
+import ChatInputAddFileItem from "./ChatInputAdd/ChatInputAddFileItem";
 import Button from "../ui/Button";
 import Tooltip from "../ui/Tooltip";
 
@@ -8,9 +11,6 @@ import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
 import CopilotIcon from "../../assets/svg/copilot.svg?react";
 import TokenIcon from "../../assets/svg/token.svg?react";
 import SendIcon from "../../assets/svg/send.svg?react";
-import ChatInputRepository from "./ChatInputRepository";
-import ChatInputAddFile from "./ChatInputAddFile";
-import ChatInputAddFileItem from "./ChatInputAddFileItem";
 import MoreHorizontalIcon from "../../assets/svg/more_horiz.svg?react";
 
 export type IChatInputProps = {

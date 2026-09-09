@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ChatInputRepositoryItem.module.css";
-import Reporitory from "../../assets/svg/repository.svg?react";
 
+import Reporitory from "../../assets/svg/repository.svg?react";
 import CheckIcon from "../../assets/svg/check.svg?react";
 
 type IChatInputRepositoryItem = React.ComponentProps<'li'>& {

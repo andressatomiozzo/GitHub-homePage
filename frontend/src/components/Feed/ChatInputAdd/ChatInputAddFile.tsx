@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "./ChatInput.module.css";
+import styles from "../ChatInput.module.css";
 import specificStyles from "./ChatInputAddFIle.module.css";
-import Tooltip from "../ui/Tooltip";
-import Button from "../ui/Button";
+import Tooltip from "../../ui/Tooltip";
+import Button from "../../ui/Button";
 
-import AddIcon from "../../assets/svg/add.svg?react";
-import ArrowToRightIcon from "../../assets/svg/arrow_to_right.svg?react";
-import FileIcon from "../../assets/svg/file2.svg?react";
-import FolderIcon from "../../assets/svg/folder.svg?react";
-import UploadIcon from "../../assets/svg/upload.svg?react";
+import AddIcon from "../../../assets/svg/add.svg?react";
+import ArrowToRightIcon from "../../../assets/svg/arrow_to_right.svg?react";
+import FileIcon from "../../../assets/svg/file2.svg?react";
+import FolderIcon from "../../../assets/svg/folder.svg?react";
+import UploadIcon from "../../../assets/svg/upload.svg?react";
 
 type IChatInputAddFIle = {
   openMenu: number | null;

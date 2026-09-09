@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./ChatInput.module.css";
 import Button from "../ui/Button";
 
@@ -6,7 +7,6 @@ import AgentIcon from "../../assets/svg/agent.svg?react";
 import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
 import CheckIcon from "../../assets/svg/check.svg?react";
 import CommentIcon from "../../assets/svg/comment.svg?react";
-import { Link } from "react-router-dom";
 
 type IChatInputAskButton = {
   openMenu: number | null;

@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./ChatInputAddFileItem.module.css";
 
-import CodeIcon from "../../assets/svg/code.svg?react";
-import CloseIcon from "../../assets/svg/close1.svg?react";
-import Button from "../ui/Button";
-import TooltipPopover from "../ui/TooltipPopover";
+import CodeIcon from "../../../assets/svg/code.svg?react";
+import CloseIcon from "../../../assets/svg/close1.svg?react";
+import Button from "../../ui/Button";
+import TooltipPopover from "../../ui/TooltipPopover";
 
 const ChatInputAddFileItem = ({
   children,
