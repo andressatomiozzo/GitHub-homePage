@@ -62,13 +62,13 @@
   background-color: var(--N0);
   border-radius: var(--BR2);
   padding: 0.5rem 0;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.181);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.086);
+  border: 1px solid var(--N300);
   top: 2.2rem;
 }
 
 .options *{
   font-size: 0.85rem;
-
 }
 
 .askOptions * {

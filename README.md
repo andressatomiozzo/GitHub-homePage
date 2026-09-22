@@ -51,7 +51,7 @@ npm install
 # Rodar o projeto
 npm run dev
 
-# EM outro terminal, entrar na pasta do backend
+# Em outro terminal, entrar na pasta do backend
 cd .\backend\
 
 # Rodar o projeto
@@ -63,7 +63,7 @@ cd .\backend\
 
 ## 🏋️ Dificuldades e soluções
 
-* Login seguro - criei um perfil fake. Futuramente quero integrar com backend para que o front não tenha contato com o login.
+<!-- * Login seguro - criei um perfil fake. Futuramente quero integrar com backend para que o front não tenha contato com o login. -->
 
 <br>
 
@@ -72,12 +72,14 @@ cd .\backend\
 * Consumo de API
 * Trabalhar com estado no React
 * Organização de código
+* Integração do login com o backend
+* Popover
+* createPortal - react-dom
 
 <br>
 
 ## 🛠️ Melhorias futuras
 
-* [ ] Integrar o login com o backend
 * [ ] Testes automatizados
 * [ ] Dark mode
 

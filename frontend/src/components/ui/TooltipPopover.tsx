@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Tooltip.module.css";
-import { createPortal } from "react-dom";
 
 type TooltipProps = React.PropsWithChildren & {
   text: string; // Texto da tooltip

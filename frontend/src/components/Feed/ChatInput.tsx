@@ -25,7 +25,10 @@ const ChatInput = () => {
 
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
         setOpenMenu(null);
       }
     };
@@ -52,7 +55,9 @@ const ChatInput = () => {
         <div className={styles.filesWrapper}>
           <ul ref={listRef}>
             {fileData.map((e) => (
-              <ChatInputAddFileItem key={e.name + e.lastModified} containerRef={listRef}>{e.name}</ChatInputAddFileItem>
+              <ChatInputAddFileItem key={e.name + e.lastModified} containerRef={listRef}>
+                {e.name}
+              </ChatInputAddFileItem>
             ))}
           </ul>
           <Button variant="button2">
@@ -78,6 +83,7 @@ const ChatInput = () => {
             handleDropDownClick={handleDropDownClick}
             fileData={fileData}
             setFileData={setFileData}
+            menuRef={menuRef}
           />
         </div>
         <div className={styles.inputActions}>

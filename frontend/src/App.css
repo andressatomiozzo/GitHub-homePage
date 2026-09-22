@@ -30,6 +30,12 @@
   color: var(--N800);
 }
 
+.smallSubtitle {
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: var(--N600);
+}
+
 .inputRepository,
 .textarea {
   background-color: var(--N0);

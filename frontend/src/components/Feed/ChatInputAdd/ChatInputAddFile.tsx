@@ -1,4 +1,5 @@
 import React from "react";
+import { createPortal } from "react-dom";
 import styles from "../ChatInput.module.css";
 import specificStyles from "./ChatInputAddFIle.module.css";
 import Tooltip from "../../ui/Tooltip";
@@ -9,15 +10,24 @@ import ArrowToRightIcon from "../../../assets/svg/arrow_to_right.svg?react";
 import FileIcon from "../../../assets/svg/file2.svg?react";
 import FolderIcon from "../../../assets/svg/folder.svg?react";
 import UploadIcon from "../../../assets/svg/upload.svg?react";
+import ChatInputAddSpaceSelection from "./ChatInputAddSpaceSelection";
 
 type IChatInputAddFIle = {
   openMenu: number | null;
   handleDropDownClick: (n: number) => void;
   fileData: null | File[];
   setFileData: React.Dispatch<React.SetStateAction<null | File[]>>;
+  menuRef: React.RefObject<HTMLElement | null>
 };
 
-const ChatInputAddFile = ({ openMenu, handleDropDownClick, fileData, setFileData }: IChatInputAddFIle) => {
+const ChatInputAddFile = ({ openMenu, handleDropDownClick, fileData, setFileData, menuRef }: IChatInputAddFIle) => {
+  const [spacesMenu, setSpacesMenu] = React.useState<boolean>(false);
+  const spaceRef = React.useRef<HTMLLIElement>(null);
+
+  React.useEffect(() => {
+    if (openMenu !== 3) setSpacesMenu(false);
+  }, [openMenu]);
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -58,15 +68,16 @@ const ChatInputAddFile = ({ openMenu, handleDropDownClick, fileData, setFileData
               </span>
               <span>Files and folders...</span>
             </li>
-            <li className={specificStyles.item}>
+            <li className={specificStyles.item} ref={spaceRef}>
               <span>
                 <FolderIcon />
               </span>
-              <span className={specificStyles.text2Span}>
+              <span className={specificStyles.text2Span} onClick={() => setSpacesMenu((prev) => !prev)}>
                 <span>Spaces...</span>
                 <span>
                   <ArrowToRightIcon />
                 </span>
+                {spacesMenu && <ChatInputAddSpaceSelection containerRef={spaceRef} />}
               </span>
             </li>
             <li className={specificStyles.line}></li>

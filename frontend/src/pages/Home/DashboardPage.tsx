@@ -15,7 +15,7 @@ const DashboardPage = () => {
         setUserData(data.user);
         setUserToken(data.accessToken);
         setLoading(false);
-        console.log(data);
+        // console.log(data);
       })
       .catch(() => {
         setLoading(false);
