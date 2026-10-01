@@ -1,8 +1,10 @@
 import React from "react";
+import { createPortal } from 'react-dom';
 import styles from "../ChatInput.module.css";
 import specificStyles from "./ChatInputAddSpaceSelection.module.css";
 import Search from "../../../assets/svg/search.svg?react";
 import Button from "../../ui/Button";
+import ChatInputAddSpaceCreate from "./ChatInputAddSpaceCreate";
 
 type IChatInputAddSpaceSelection = {
   containerRef: React.RefObject<HTMLElement | null>;
@@ -11,6 +13,7 @@ type IChatInputAddSpaceSelection = {
 const ChatInputAddSpaceSelection = ({ containerRef }: IChatInputAddSpaceSelection) => {
   const [inputValue, setInputValue] = React.useState<string>("");
   const wrapperRef = React.useRef<HTMLDivElement>(null);
+  const [openModal, setOpenModal] = React.useState<boolean>(false)
 
   return (
     <div
@@ -32,7 +35,8 @@ const ChatInputAddSpaceSelection = ({ containerRef }: IChatInputAddSpaceSelectio
       <div className={specificStyles.noSpaceFoundWrapper}>
         <span className="smallTitle">No spaces found</span>
         <span className="smallSubtitle">You can create a new space to get started.</span>
-        <Button variant="button1" className={specificStyles.button}>Create a new space</Button>
+        <Button variant="button1" className={specificStyles.button} onClick={() => setOpenModal((prev) => !prev)}>Create a new space</Button>
+        {openModal && createPortal(<ChatInputAddSpaceCreate/>, document.body)}
       </div>
     </div>
   );
