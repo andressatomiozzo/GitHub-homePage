@@ -1,0 +1,5 @@
+.wrapper{
+  width: 30rem;
+  background-color: var(--N0);
+  border-radius: var(--BR2);
+}

@@ -56,3 +56,15 @@
   border: 1px solid var(--Blue);
   outline: 1px solid var(--Blue);
 }
+
+.modal {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: var(--BGModal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -6,6 +6,7 @@ import ChatInputAddFile from "./ChatInputAdd/ChatInputAddFile";
 import ChatInputAddFileItem from "./ChatInputAdd/ChatInputAddFileItem";
 import Button from "../ui/Button";
 import Tooltip from "../ui/Tooltip";
+import { MenuPortalProvider } from "../../context/MenuPortalContext";
 
 import ArrowDropDownIcon from "../../assets/svg/arrow_drop_down.svg?react";
 import CopilotIcon from "../../assets/svg/copilot.svg?react";
@@ -22,13 +23,16 @@ export type IChatInputProps = {
 const ChatInput = () => {
   const [openMenu, setOpenMenu] = React.useState<number | null>(null);
   const menuRef = React.useRef<HTMLDivElement>(null);
+  const portalRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      const target = event.target as Node;
+
+      const clickedInsideMenu = menuRef.current?.contains(target);
+      const clickedInsidePortal = portalRef.current?.contains(target);
+
+      if (!clickedInsideMenu && !clickedInsidePortal) {
         setOpenMenu(null);
       }
     };
@@ -50,72 +54,78 @@ const ChatInput = () => {
   const listRef = React.useRef<HTMLUListElement>(null);
 
   return (
-    <div className={`textarea ${styles.inputContainer}`}>
-      {fileData && (
-        <div className={styles.filesWrapper}>
-          <ul ref={listRef}>
-            {fileData.map((e) => (
-              <ChatInputAddFileItem key={e.name + e.lastModified} containerRef={listRef}>
-                {e.name}
-              </ChatInputAddFileItem>
-            ))}
-          </ul>
-          <Button variant="button2">
-            <MoreHorizontalIcon />
-          </Button>
-        </div>
-      )}
+    <MenuPortalProvider>
+      <div className={`textarea ${styles.inputContainer}`}>
+        {fileData && (
+          <div className={styles.filesWrapper}>
+            <ul ref={listRef}>
+              {fileData.map((e) => (
+                <ChatInputAddFileItem key={e.name + e.lastModified} containerRef={listRef}>
+                  {e.name}
+                </ChatInputAddFileItem>
+              ))}
+            </ul>
+            <Button variant="button2">
+              <MoreHorizontalIcon />
+            </Button>
+          </div>
+        )}
 
-      <textarea
-        name="homeFeed"
-        id="homeFeed"
-        placeholder="Ask anything or type @ to add context"
-        className={styles.textArea}
-      />
-      <div ref={menuRef} className={styles.inputBar}>
-        <div className={styles.optionsRef}>
-          <ChatInputAskButton openMenu={openMenu} setOpenMenu={setOpenMenu} handleDropDownClick={handleDropDownClick} />
-        </div>
-        <div className={styles.inputExtra}>
-          <ChatInputRepository openMenu={openMenu} handleDropDownClick={handleDropDownClick} />
-          <ChatInputAddFile
-            openMenu={openMenu}
-            handleDropDownClick={handleDropDownClick}
-            fileData={fileData}
-            setFileData={setFileData}
-            menuRef={menuRef}
-          />
-        </div>
-        <div className={styles.inputActions}>
-          <Button
-            variant="button2"
-            className={`${styles.button2} ${openMenu === 4 && styles.activeBtn}`}
-            onClick={() => handleDropDownClick(4)}
-          >
-            <CopilotIcon />
-            <span>Auto</span>
-            <ArrowDropDownIcon />
-          </Button>
-          <Tooltip text="View token usage">
+        <textarea
+          name="homeFeed"
+          id="homeFeed"
+          placeholder="Ask anything or type @ to add context"
+          className={styles.textArea}
+        />
+        <div ref={menuRef} className={styles.inputBar}>
+          <div className={styles.optionsRef}>
+            <ChatInputAskButton
+              openMenu={openMenu}
+              setOpenMenu={setOpenMenu}
+              handleDropDownClick={handleDropDownClick}
+            />
+          </div>
+          <div className={styles.inputExtra}>
+            <ChatInputRepository openMenu={openMenu} handleDropDownClick={handleDropDownClick} />
+            <ChatInputAddFile
+              openMenu={openMenu}
+              handleDropDownClick={handleDropDownClick}
+              fileData={fileData}
+              setFileData={setFileData}
+              menuRef={menuRef}
+            />
+          </div>
+          <div className={styles.inputActions}>
             <Button
               variant="button2"
-              className={`${styles.button3} ${openMenu === 5 && styles.activeBtn}`}
-              onClick={() => handleDropDownClick(5)}
+              className={`${styles.button2} ${openMenu === 4 && styles.activeBtn}`}
+              onClick={() => handleDropDownClick(4)}
             >
-              <TokenIcon />
+              <CopilotIcon />
+              <span>Auto</span>
+              <ArrowDropDownIcon />
             </Button>
-          </Tooltip>
-
-          <div>
-            <Tooltip text="Send now">
-              <Button variant="button2" className={styles.button3}>
-                <SendIcon />
+            <Tooltip text="View token usage">
+              <Button
+                variant="button2"
+                className={`${styles.button3} ${openMenu === 5 && styles.activeBtn}`}
+                onClick={() => handleDropDownClick(5)}
+              >
+                <TokenIcon />
               </Button>
             </Tooltip>
+
+            <div>
+              <Tooltip text="Send now">
+                <Button variant="button2" className={styles.button3}>
+                  <SendIcon />
+                </Button>
+              </Tooltip>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </MenuPortalProvider>
   );
 };
 
